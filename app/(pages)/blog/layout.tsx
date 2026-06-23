@@ -4,8 +4,8 @@
 
   const inter = Inter({subsets:["latin"],weight:["400","500","600","700","800","900"]})
   export const metadata: Metadata = {
-    title: "All blogs - Saketh Kusuma",
-    description: "Software Developer focused on building scalable web applications with Java, React.js, Node.js, MongoDB, and AWS. Passionate about problem-solving, clean code, and delivering impactful digital solutions.",
+    title: "Blogs | Saketh Kusuma",
+    description: "Dive into my blogs on thoughts on code, design, and building things.",
   };
 
   export default function RootLayout({
@@ -18,7 +18,7 @@
         lang="en"
         className={`${inter.className} h-full antialiased`}
       >
-        <Container className="min-h-screen px-10 pt-14 md:pt-15 md:pb-10">{children}</Container>
+        <Container className="">{children}</Container>
       </html>
     );
   }

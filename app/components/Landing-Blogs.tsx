@@ -4,10 +4,10 @@ import Link from 'next/link'
 const LandingBlogs = () => {
   return (
             <div>
-                <p className="text-secondary text-sm md:text-sm max-w-lg pt-2 md:pt-4 mb-2 md:mb-4">
-                     I love writing it down
+                <p className="text-secondary text-sm max-w-lg pt-2 md:pt-4 mb-2 md:mb-4">
+                    Thoughts, tutorials, and technical insights
                  </p>
-                <div className='flex flex-col gap-8'>
+                <div className='flex flex-col gap-4'>
                     {blogs.map((blog,index)=>(
                     <Link key={index} href={`/blog/${blog.slug}`}>
                         <div className='flex items-center justify-between'>
@@ -18,7 +18,7 @@ const LandingBlogs = () => {
                                 {blog.date}
                             </p>
                         </div>
-                        <p className='text-secondary max-w-lg pt-4 text-sm md:text-sm'>
+                        <p className='text-secondary max-w-lg pt-2 text-sm md:text-sm'>
                         {blog.description}
                         </p>
                     </Link>

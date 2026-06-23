@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import {Inter, Geist } from "next/font/google";
 import { ViewTransitions } from 'next-view-transitions'
-import "./globals.css";
+import "../globals.css";
+import Navbar from "../navbar";
 import { cn } from "@/lib/utils";
-
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({subsets:["latin"],weight:["400","500","600","700","800","900"]})
@@ -17,17 +17,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
-    <ViewTransitions>
-      <html
-        lang="en"
-        className={cn("h-full", "antialiased", inter.className, "font-sans", geist.variable)}
-      >
+
         <body className="min-h-full flex flex-col bg-neutral-100 dark:bg-neutral-800">
+          <Navbar/>
           {children}
         </body>
-      </html>
-    </ViewTransitions>
   );
 }

@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { blogs } from "../../lib/blogs";
+import { blogs } from "../../../lib/blogs";
 
 interface Props {
   params: Promise<{
@@ -16,7 +16,7 @@ export async function generateMetadata({params}:Props){
     }
   }
   return {
-    title:blog.title + "by Saketh Kusuma",
+    title: `Blog | ${blog.title} by Saketh Kusuma`,
     description:blog.description
   }
 }

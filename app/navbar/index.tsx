@@ -6,8 +6,10 @@ import { motion, useMotionValueEvent, useScroll, useTransform, AnimatePresence }
 import { useState, useEffect } from 'react';
 
 function getWidthRange(vw: number): [string, string] {
-  if (vw < 640)  return ["96%", "88%"];  
-  if (vw < 1024) return ["70%", "60%"]; 
+  if (vw < 640)  return ["90%", "88%"];  
+  if (vw < 768) return ["95%", "70%"];
+  if (vw < 1024) return ["85%", "70%"];
+
   return ["52%", "48%"];
 }
 
@@ -56,9 +58,16 @@ useMotionValueEvent(scrollY,"change",(latest)=>{
         ease:"linear"
      }} 
      className={`${shadow?"rounded-4xl bg-white dark:bg-neutral-900":""} fixed inset-x-0 top-0 z-100 max-w-4xl mx-auto flex items-center justify-between px-3 py-3 w-full`}>
+    <motion.div 
+initial={{opacity:0,y:10}} whileInView={{opacity:1,y:0}} transition={{
+                duration:0.3,
+                delay:0.2,
+                ease:"linear"
+                }}    >
     <Link href={"/"}>
-    <Image src="/avatar.png" width="100" height="100" alt="avatar" className='h-10 w-10 rounded-full'/>
+    <Image src="/avatar-hero1.png" width="100" height="100" alt="avatar" loading='eager' className='h-10 w-10 rounded-full'/>
     </Link>
+    </motion.div>
 
     <div className='hidden sm:flex items-center'>
         {navItems.map((item,index)=>(

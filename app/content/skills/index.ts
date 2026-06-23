@@ -1,5 +1,10 @@
 export const skills = [
   {
+    imgSrc: "https://skillicons.dev/icons?i=java",
+    skill: "Java",
+    borderColor: "#ED8B00",
+  },
+  {
     imgSrc: "https://skillicons.dev/icons?i=js",
     skill: "JavaScript",
     borderColor: "#F7DF1E",
@@ -10,15 +15,11 @@ export const skills = [
     borderColor: "#3178C6",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=java",
-    skill: "Java",
-    borderColor: "#ED8B00",
-  },
-  {
     imgSrc: "https://skillicons.dev/icons?i=mysql",
     skill: "SQL",
     borderColor: "#336791",
   },
+
   {
     imgSrc: "https://skillicons.dev/icons?i=html",
     skill: "HTML5",
@@ -28,6 +29,11 @@ export const skills = [
     imgSrc: "https://skillicons.dev/icons?i=css",
     skill: "CSS3",
     borderColor: "#1572B6",
+  },
+  {
+    imgSrc: "https://skillicons.dev/icons?i=tailwind",
+    skill: "Tailwind CSS",
+    borderColor: "#06B6D4",
   },
   {
     imgSrc: "https://skillicons.dev/icons?i=react",
@@ -45,11 +51,6 @@ export const skills = [
     borderColor: "#764ABC",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=tailwind",
-    skill: "Tailwind CSS",
-    borderColor: "#06B6D4",
-  },
-  {
     imgSrc: "https://skillicons.dev/icons?i=react",
     skill: "Shadcn UI",
     borderColor: "#FFFFFF",
@@ -59,6 +60,7 @@ export const skills = [
     skill: "Framer Motion",
     borderColor: "#0055FF",
   },
+
   {
     imgSrc: "https://skillicons.dev/icons?i=nodejs",
     skill: "Node.js",
@@ -69,6 +71,7 @@ export const skills = [
     skill: "Express.js",
     borderColor: "#FFFFFF",
   },
+
   {
     imgSrc: "https://skillicons.dev/icons?i=mongodb",
     skill: "MongoDB",
@@ -84,6 +87,7 @@ export const skills = [
     skill: "Firebase",
     borderColor: "#FFCA28",
   },
+
   {
     imgSrc: "https://skillicons.dev/icons?i=aws",
     skill: "AWS EC2",
@@ -94,6 +98,7 @@ export const skills = [
     skill: "Docker",
     borderColor: "#2496ED",
   },
+
   {
     imgSrc: "https://skillicons.dev/icons?i=git",
     skill: "Git",

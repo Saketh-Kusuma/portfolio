@@ -11,11 +11,11 @@ const Projects = () => {
     },{
         title:"Link Devs",
         src:"/projects/linkdevs-thumbnail-dark.png",
-        description:"A developer matchmaking platform using React and Node.js/Express.js with JWT-secured REST APIs for registration, authentication, and profile management.",
+        description:"A developer matchmaking platform using React and Node.js/Express.js with JWT-secured REST APIs for registration, authentication.",
         href:"#"
     }]
   return (
-    <div className='py-10'>
+    <div className='pt-3'>
         <p className="text-secondary text-sm md:text-sm max-w-lg pt-4">
          I love building web apps and products that can impact millions of lives
         </p>
@@ -28,7 +28,7 @@ const Projects = () => {
                 }}  key={index} className="group md:h-60 md:mb-20">
                     <Link href={project.href} className="block">
                         <div className="relative w-full aspect-video md:h-60 md:aspect-auto overflow-hidden rounded-xl">
-                            <Image alt={`${project.title}`} src={project.src} fill loading="eager" className="object-cover group-hover:scale-[1.02] transition duration-200"/>
+                            <Image alt={`${project.title}`} src={project.src} fill sizes="100" loading="eager" className="object-cover group-hover:scale-[1.02] transition duration-200"/>
                         </div>
                         <h2 className="text-neutral-500 dark:text-neutral-400 font-medium mt-3 tracking-tight text-sm sm:text-base">{project.title}</h2>
                         <p className="text-neutral-500 dark:text-neutral-400 text-xs sm:text-sm max-w-xs mt-1 leading-relaxed">{project.description}</p>
