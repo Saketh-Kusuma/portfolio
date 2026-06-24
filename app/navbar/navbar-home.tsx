@@ -45,11 +45,11 @@ const NavbarHome = () => {
   });
 
   return (
-    <Container>
+    <>
       <nav
-        className={`fixed top-0 right-0 z-100 max-w-4xl w-full pt-3 px-3 flex justify-center items-center me-auto`}
+        className={`fixed top-0 left-0 right-0 mx-auto z-100 max-w-4xl w-full pt-3 px-3 flex justify-end items-center`}
       >
-       <div className='hidden sm:flex items-center'>
+       <div className={`dark:bg-neutral-900 px-5 py-3 hidden sm:flex items-center gap-2`}>
         {navItems.map((item,index)=>(
             <Link className='text-sm relative px-2 py-1' href={item.href} key={index} onMouseEnter={()=>setHovered(index)} onMouseLeave={()=>setHovered(null)}>
                 {hovered===index&&(
@@ -108,7 +108,7 @@ const NavbarHome = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </Container>
+      </>
   );
 };
 

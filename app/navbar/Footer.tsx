@@ -15,7 +15,7 @@ const Footer = () => {
             <Link target='_blank' href="https://leetcode.com/u/sakethsunny65/"><HugeiconsIcon icon={LeetcodeIcon} className='h-4 w-4 text-neutral-500 hover:text-neutral-700'/></Link>
         </div>
     </Container>
-    <div className='hidden sm:block h-10 bg-neutral-200'></div>
+   
     </Container>
   )
 }

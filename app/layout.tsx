@@ -26,11 +26,10 @@ export default function RootLayout({
         lang="en"
         className={cn("h-full", "antialiased", inter.className, "font-sans", geist.variable)}
       >
-        <body className="relative min-h-full flex flex-col bg-neutral-100 dark:bg-neutral-800">
+        <body className="relative min-h-full flex flex-col select-none">
           {children}
           <Footer/>
           <Toaster position="bottom-right" richColors />
-         
         </body>
       </html>
     </ViewTransitions>
