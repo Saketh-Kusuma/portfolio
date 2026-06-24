@@ -30,6 +30,7 @@ export default function RootLayout({
           {children}
           <Footer/>
           <Toaster position="bottom-right" richColors />
+         
         </body>
       </html>
     </ViewTransitions>
