@@ -65,7 +65,7 @@ const Navbar = () => {
           duration: 0.3,
           ease: "linear",
         }}
-        className={`${shadow ? "rounded-4xl bg-white dark:bg-neutral-900" : ""} fixed inset-x-0 top-0 z-100 max-w-4xl mx-auto flex items-center justify-between px-3 py-3 w-full`}
+        className={`${shadow ? "rounded-4xl bg-white dark:bg-neutral-900" : ""} fixed inset-x-0 top-0 z-100 max-w-4xl mx-auto flex items-center justify-between px-3 py-3 w-full mt-2`}
       >
         <motion.div
           initial={{ opacity: 0, y: 10 }}

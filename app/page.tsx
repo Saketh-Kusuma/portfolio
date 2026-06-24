@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <div>
       <NavbarHome />
-      <div className="min-h-screen w-full ">
-        <Container className="min-h-screen px-8 pt-15 md:pt-15 md:px-20">
+      <div className="flex-1 w-full flex flex-col">
+        <Container className="flex-1 px-8 pt-15 md:pt-15 md:px-20">
           <FadeUp>
             <div className="flex items-center gap-4 pb-2">
               <Image

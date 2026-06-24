@@ -7,19 +7,18 @@ interface Props {
     slug: string;
   }>;
 }
-export async function generateMetadata({params}:Props){
-  const {slug} = await params;
-  const blog =  blogs.find((blog)=>blog.slug==slug);
-  if(!blog)
-  {
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  const blog = blogs.find((blog) => blog.slug == slug);
+  if (!blog) {
     return {
-      title:"Blog not found"
-    }
+      title: "Blog not found",
+    };
   }
   return {
     title: `Blog | ${blog.title} by Saketh Kusuma`,
-    description:blog.description
-  }
+    description: blog.description,
+  };
 }
 export default async function BlogPage({ params }: Props) {
   const { slug } = await params;
@@ -32,8 +31,8 @@ export default async function BlogPage({ params }: Props) {
   const BlogContent = (await blog.loader()).default;
 
   return (
-    <div className="min-h-screen pt-15 px-8 md:pt-20 md:pl-20 prose">
-        <BlogContent />
+    <div className="flex-1 pt-15 px-8 md:pt-20 md:pl-20 prose">
+      <BlogContent />
     </div>
   );
 }
