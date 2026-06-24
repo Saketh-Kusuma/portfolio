@@ -47,27 +47,18 @@ const NavbarHome = () => {
   return (
     <Container>
       <nav
-        className={`fixed top-0 right-0 z-100 max-w-4xl w-full pt-3 px-3 flex justify-center items-center`}
+        className={`fixed top-0 right-0 z-100 max-w-4xl w-full pt-3 px-3 flex justify-center items-center me-auto`}
       >
-        <div className='hidden sm:flex items-center gap-2'>
-          {navItems.map((item, index) => (
-            <Link
-              className='text-sm relative px-2 py-1'
-              href={item.href}
-              key={index}
-              onMouseEnter={() => setHovered(index)}
-              onMouseLeave={() => setHovered(null)}
-            >
-              {hovered === index && (
-                <motion.span
-                  layoutId='hovered-span'
-                  className='h-full w-full absolute inset-0 rounded-2xl bg-neutral-300 dark:bg-neutral-800'
-                />
-              )}
-              <span className='relative z-10'>{item.title}</span>
+       <div className='hidden sm:flex items-center'>
+        {navItems.map((item,index)=>(
+            <Link className='text-sm relative px-2 py-1' href={item.href} key={index} onMouseEnter={()=>setHovered(index)} onMouseLeave={()=>setHovered(null)}>
+                {hovered===index&&(
+                    <motion.span layoutId='hovered-span' className='h-full w-full absolute inset-0 rounded-2xl bg-neutral-300 dark:bg-neutral-800'/>
+                )}
+                <span className='relative z-10'>{item.title}</span>
             </Link>
-          ))}
-        </div>
+        ))}
+    </div>
 
         <button
           id='hamburger-toggle'

@@ -12,13 +12,13 @@ const BlogsList = () => {
                             duration:0.3,
                             delay: index*0.1,
                             ease:"easeInOut"
-                            }}  key={index} className="group md:h-60 md:mb-4">
+                            }}  key={index} className="group md:h-50 md:mb-8">
                                 <Link href={`/blog/${blog.slug}`}>
-                                    <div className="relative w-full aspect-video md:h-60 md:aspect-auto overflow-hidden rounded-xl">
+                                    <div className="relative w-full aspect-video md:h-50 md:aspect-auto overflow-hidden rounded-xl">
                                         <Image alt={`${blog.title}`} src={blog.image} loading="eager" fill className="object-cover group-hover:scale-[1.02] transition duration-200"/>
                                     </div>
-                                    <h2 className="text-neutral-500 dark:text-neutral-400 font-medium mt-3 tracking-tight text-sm sm:text-base">{blog.title}</h2>
-                                    <p className="text-neutral-500 dark:text-neutral-400 text-xs sm:text-sm max-w-xs mt-1 leading-relaxed">{blog.description}</p>
+                                    <h2 className="text-neutral-800 dark:text-neutral-400 font-medium mt-3 tracking-tight text-sm sm:text-base">{blog.title}</h2>
+                                    <p className="text-neutral-500 dark:text-neutral-400 text-xs sm:text-sm max-w-sm mt-1 leading-relaxed">{blog.description}</p>
                                 </Link>
                             </motion.div>
                         ))}

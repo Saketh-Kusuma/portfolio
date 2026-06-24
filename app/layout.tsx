@@ -3,6 +3,8 @@ import {Inter, Geist } from "next/font/google";
 import { ViewTransitions } from 'next-view-transitions'
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Footer from "./navbar/Footer";
+import { Toaster } from "sonner";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -24,8 +26,10 @@ export default function RootLayout({
         lang="en"
         className={cn("h-full", "antialiased", inter.className, "font-sans", geist.variable)}
       >
-        <body className="min-h-full flex flex-col bg-neutral-100 dark:bg-neutral-800">
+        <body className="relative min-h-full flex flex-col bg-neutral-100 dark:bg-neutral-800">
           {children}
+          <Footer/>
+          <Toaster position="bottom-right" richColors />
         </body>
       </html>
     </ViewTransitions>

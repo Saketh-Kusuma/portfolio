@@ -23,7 +23,7 @@ const Projects = () => {
         </p>
        </FadeUp>
         <div className="grid grid-cols-1 gap-10 py-4 md:grid-cols-2">
-            {projects.map((project,index)=>(
+            {projects.slice(0,3).map((project,index)=>(
                 <motion.div initial={{opacity:0,filter:'blur(10px)',y:10}} whileInView={{opacity:1,filter:'blur(0px)',y:0}} transition={{
                 duration:0.3,
                 delay: index*0.1,

@@ -4,11 +4,11 @@ import Link from 'next/link'
 const LandingBlogs = () => {
   return (
             <div>
-                <p className="text-secondary text-sm max-w-lg pt-2 md:pt-4 mb-2 md:mb-4">
-                    Thoughts, tutorials, and technical insights
+                <p className="text-secondary text-sm max-w-lg pt-2 md:pt-4 mb-4 md:mb-4">
+                  Writings
                  </p>
                 <div className='flex flex-col gap-4'>
-                    {blogs.map((blog,index)=>(
+                    {blogs.slice(0,3).map((blog,index)=>(
                     <Link key={index} href={`/blog/${blog.slug}`}>
                         <div className='flex items-center justify-between'>
                             <h2 className='text-primary text-base font-bold tracking-tight'>

@@ -1,19 +1,11 @@
 
 export const blogs = [
   {
-    slug: "tailwindcss",
-    title: "Tailwind CSS Complete Guide",
-    description: "Learn Tailwind CSS from basics to advanced.",
-    image: "/blogs/tailwindcss.png",
-    date:'Monday, Jun 22, 2026',
-    loader: () => import("../content/blogs/tailwindcss.mdx"),
-  },
-  {
-    slug: "nextjs",
-    title: "Next.js Complete Guide",
-    description: "Everything about Next.js (React Framework)",
-    image: "/blogs/nextjs.png",
-    date:'Monday, Jun 22, 2026',
-    loader: () => import("../content/blogs/nextjs.mdx"),
-  },
+  slug: "hello-world",
+  title: "Starting My Developer Journey in Public",
+  description: "Why I started this blog, what I plan to write about, and what you can expect from my journey in web development and software engineering.",
+  image: "/blogs/hello-world.png",
+  date: "Wednesday, Jun 24, 2026",
+  loader: () => import("../content/blogs/first-blog.mdx"),
+},
 ];

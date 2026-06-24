@@ -1,5 +1,7 @@
 import Container from "@/app/components/Container"
 import Projects from "@/app/components/Projects"
+import PageHeading from "@/app/components/PageHeading"
+import FadeUp from "@/app/components/FadeUp"
 import { Metadata } from "next"
 
 export async function generateMetadata():Promise<Metadata> {
@@ -12,7 +14,9 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen flex items-start justify-start gap-10 w-full">
         <Container className="min-h-screen px-8 pt-15 md:p-20">
-          <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-primary">Projects</h1>
+          <FadeUp>
+            <PageHeading>Projects</PageHeading>
+          </FadeUp>
           <Projects/>
         </Container>
     </div>
