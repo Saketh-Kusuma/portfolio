@@ -13,7 +13,7 @@ export default function Home() {
     <div>
       <NavbarHome />
       <div className="flex-1 w-full flex flex-col">
-        <Container className="flex-1 px-8 pt-15 md:pt-15 md:px-20">
+        <Container className="flex-1 px-8 pt-10 md:pt-15 md:px-20">
           <FadeUp>
             <div className="flex items-center gap-4 pb-2">
               <Image
