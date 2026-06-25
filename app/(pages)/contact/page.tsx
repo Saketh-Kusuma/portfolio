@@ -9,10 +9,23 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Contact | Saketh Kusuma",
     description:
-      "Get in touch with me. Leave a message and I'll get back to you as soon as possible.",
+      "Get in touch with Saketh Kusuma for software development opportunities, freelance projects, collaborations, or any questions. I'd love to hear from you.",
+
+    keywords: [
+      "Contact Saketh Kusuma",
+      "Hire Full Stack Developer",
+      "React Developer",
+      "Next.js Developer",
+      "Frontend Developer",
+      "Freelance Web Developer",
+      "Software Engineer Contact",
+    ],
+
+    alternates: {
+      canonical: "/contact",
+    },
   };
 }
-
 const Contact = () => {
   return (
     <div className="flex-1 flex items-start justify-start w-full">

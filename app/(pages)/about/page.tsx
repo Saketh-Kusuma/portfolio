@@ -13,7 +13,48 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "About | Saketh Kusuma",
     description:
-      "I'm Saketh, a developer who enjoys building things and understanding how they work behind the scenes. Whether it's developing a new feature, solving a challenging bug, or learning a new technology, I enjoy the problem-solving aspect of software development.",
+      "Learn more about Saketh Kusuma, a Full Stack Developer passionate about building modern web applications with React, Next.js, TypeScript, Node.js, and MongoDB. Discover my journey, skills, and experience in software development.",
+
+    keywords: [
+      "Saketh Kusuma",
+      "About Saketh Kusuma",
+      "Full Stack Developer",
+      "Frontend Developer",
+      "React Developer",
+      "Next.js Developer",
+      "TypeScript",
+      "Node.js",
+      "MongoDB",
+      "Portfolio",
+      "Software Engineer",
+    ],
+
+    openGraph: {
+      title: "About | Saketh Kusuma",
+      description:
+        "Learn more about Saketh Kusuma, a Full Stack Developer specializing in React, Next.js, TypeScript, and Node.js.",
+      url: "https://yourdomain.com/about",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "About Saketh Kusuma",
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: "About | Saketh Kusuma",
+      description:
+        "Learn more about Saketh Kusuma and my journey as a Full Stack Developer.",
+      images: ["/og-image.png"],
+    },
+
+    alternates: {
+      canonical: "/about",
+    },
   };
 }
 export default function About() {

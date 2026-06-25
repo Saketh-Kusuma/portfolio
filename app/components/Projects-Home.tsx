@@ -6,7 +6,7 @@ import FadeUp from "./FadeUp";
 const Projects = () => {
     const projects = [{
         title:"Wonder World Adventure Hub",
-        src:"/projects/wonder-world-hub-thumbnail.png",
+        src:"/projects/wonder-world-thumbnail.png",
         description:"A  full-stack React and Node.js web application for a theme park with a responsive interface and real-time visitor query handling.",
         href:"#"
     },{

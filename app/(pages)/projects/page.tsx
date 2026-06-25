@@ -3,12 +3,29 @@ import Projects from "@/app/components/Projects";
 import PageHeading from "@/app/components/PageHeading";
 import FadeUp from "@/app/components/FadeUp";
 import { Metadata } from "next";
-
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Projects | Saketh Kusuma",
     description:
-      "I'm Saketh, a developer who enjoys building things and understanding how they work behind the scenes. Whether it's developing a new feature, solving a challenging bug, or learning a new technology, I enjoy the problem-solving aspect of software development.",
+      "Explore software development projects by Saketh Kusuma, including full-stack web applications built with React, Next.js, TypeScript, Node.js, Express.js, MongoDB, Firebase, and AWS.",
+
+    keywords: [
+      "Saketh Kusuma Projects",
+      "React Projects",
+      "Next.js Projects",
+      "Full Stack Projects",
+      "MERN Stack Portfolio",
+      "TypeScript Projects",
+      "Node.js Projects",
+      "MongoDB Projects",
+      "Firebase Projects",
+      "AWS Projects",
+      "Software Developer Portfolio",
+    ],
+
+    alternates: {
+      canonical: "/projects",
+    },
   };
 }
 export default function ProjectsPage() {
