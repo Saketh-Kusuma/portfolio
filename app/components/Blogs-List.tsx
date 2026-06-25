@@ -29,7 +29,7 @@ const BlogsList = () => {
                 className="object-cover group-hover:scale-[1.02] transition duration-200"
               />
             </div>
-            <h2 className="text-neutral-800 dark:text-neutral-400 font-medium mt-3 tracking-tight text-sm sm:text-base">
+            <h2 className="text-neutral-800 dark:text-neutral-200 font-medium mt-3 tracking-tight text-sm sm:text-base">
               {blog.title}
             </h2>
             <p className="text-neutral-500 dark:text-neutral-400 text-xs sm:text-sm max-w-sm mt-1 leading-relaxed">

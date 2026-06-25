@@ -10,6 +10,7 @@ import {
   AnimatePresence,
 } from "motion/react";
 import { useState, useEffect } from "react";
+import { ModeToggle } from "@/components/theme-toggle";
 
 function getWidthRange(vw: number): [string, string] {
   if (vw < 640) return ["90%", "88%"];
@@ -65,7 +66,7 @@ const Navbar = () => {
           duration: 0.3,
           ease: "linear",
         }}
-        className={`${shadow ? "rounded-4xl bg-white dark:bg-neutral-900" : ""} fixed inset-x-0 top-0 z-100 max-w-4xl mx-auto flex items-center justify-between px-3 py-3 w-full mt-2`}
+        className={`${shadow ? "rounded-4xl bg-neutral-200 dark:bg-neutral-800" : ""} fixed inset-x-0 top-0 z-100 max-w-4xl mx-auto flex items-center justify-between px-3 py-3 w-full mt-2`}
       >
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -100,37 +101,44 @@ const Navbar = () => {
               {hovered === index && (
                 <motion.span
                   layoutId="hovered-span"
-                  className="h-full w-full absolute inset-0 rounded-2xl bg-neutral-300 dark:bg-neutral-800"
+                  className="h-full w-full absolute inset-0 rounded-2xl bg-neutral-300 dark:bg-neutral-600"
                 />
               )}
               <span className="relative z-10">{item.title}</span>
             </Link>
           ))}
         </div>
-        <button
-          id="hamburger-toggle"
-          aria-label="Toggle menu"
-          onClick={() => setMobileOpen((prev) => !prev)}
-          className="sm:hidden flex flex-col justify-center items-center w-9 h-9 gap-[5px] rounded-lg focus:outline-none"
-        >
-          <motion.span
-            animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="block h-[2px] w-5 bg-neutral-800 dark:bg-neutral-100 origin-center rounded-full"
-          />
-          <motion.span
-            animate={
-              mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }
-            }
-            transition={{ duration: 0.2 }}
-            className="block h-[2px] w-5 bg-neutral-800 dark:bg-neutral-100 rounded-full"
-          />
-          <motion.span
-            animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="block h-[2px] w-5 bg-neutral-800 dark:bg-neutral-100 origin-center rounded-full"
-          />
-        </button>
+        <div className="flex items-center gap-2">
+          <ModeToggle />
+          <button
+            id="hamburger-toggle"
+            aria-label="Toggle menu"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            className="sm:hidden flex flex-col justify-center items-center w-6 h-6 gap-[3px] rounded-lg focus:outline-none"
+          >
+            <motion.span
+              animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="block h-[2px] w-5 bg-neutral-800 dark:bg-neutral-100 origin-center rounded-full"
+            />
+            <motion.span
+              animate={
+                mobileOpen
+                  ? { opacity: 0, scaleX: 0 }
+                  : { opacity: 1, scaleX: 1 }
+              }
+              transition={{ duration: 0.2 }}
+              className="block h-[2px] w-5 bg-neutral-800 dark:bg-neutral-100 rounded-full"
+            />
+            <motion.span
+              animate={
+                mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }
+              }
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="block h-[2px] w-5 bg-neutral-800 dark:bg-neutral-100 origin-center rounded-full"
+            />
+          </button>
+        </div>
       </motion.nav>
 
       {/* Mobile dropdown menu */}
@@ -143,7 +151,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -12, scale: 0.97 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="sm:hidden fixed top-[68px] inset-x-4 z-40 rounded-2xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-neutral-200 dark:border-neutral-700 shadow-lg overflow-hidden"
+            className="sm:hidden fixed top-[68px] inset-x-4 z-40 rounded-2xl bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md border border-neutral-200 dark:border-neutral-700 shadow-lg overflow-hidden"
           >
             {navItems.map((item, index) => (
               <Link

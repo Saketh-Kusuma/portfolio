@@ -10,8 +10,8 @@ const PageHeading = ({ children, className }: PageHeadingProps) => {
   return (
     <h1
       className={cn(
-        "text-2xl md:text-4xl font-bold tracking-tight text-primary",
-        className
+        "text-2xl md:text-4xl font-bold tracking-tight text-primary dark:text-neutral-200",
+        className,
       )}
     >
       {children}

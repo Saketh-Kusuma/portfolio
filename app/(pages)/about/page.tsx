@@ -9,6 +9,7 @@ import PageHeading from "@/app/components/PageHeading";
 import Paragraph from "@/app/components/Paragraph";
 import FadeUp from "@/app/components/FadeUp";
 import type { Metadata } from "next";
+import TechStackList from "@/app/components/TechStack-List";
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "About | Saketh Kusuma",
@@ -80,35 +81,15 @@ export default function About() {
         </FadeUp>
         <FadeUp delay={0.1}>
           <div>
-            <p className="text-primary text-sm md:text-sm max-w-lg pt-6">
+            <Paragraph className="text-primary text-sm md:text-sm max-w-lg pt-6">
               Tech Stack:
-            </p>
-            <div className="flex flex-wrap shrink md:grow gap-3 mt-2">
-              {skills.map((skill, index) => (
-                <Badge
-                  key={index}
-                  className={cn(
-                    "w-max py-5 flex justify-start items-center border-2 gap-2",
-                    `hover:border-[${skill.borderColor}]`,
-                  )}
-                  variant={"link"}
-                >
-                  <Image
-                    unoptimized
-                    src={`${skill.imgSrc}`}
-                    alt={`${skill.skill}`}
-                    width={20}
-                    height={20}
-                  />
-                  <span className="text-secondary text-sm">{skill.skill}</span>
-                </Badge>
-              ))}
-            </div>
+            </Paragraph>
+            <TechStackList />
           </div>
         </FadeUp>
         <FadeUp delay={0.15}>
           <div>
-            <p className="text-primary text-sm md:text-sm max-w-lg py-6">
+            <p className="text-primary dark:text-neutral-200 text-sm md:text-sm max-w-lg py-6">
               Here&apos;s a timeline of my achivements:
             </p>
             <Timeline data={timeline} />

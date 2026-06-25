@@ -10,8 +10,8 @@ const Paragraph = ({ children, className }: ParagraphProps) => {
   return (
     <p
       className={cn(
-        "text-secondary text-sm md:text-sm max-w-lg",
-        className
+        "text-secondary text-sm md:text-sm max-w-lg dark:text-neutral-200",
+        className,
       )}
     >
       {children}

@@ -1,33 +1,33 @@
-'use client'
+"use client";
 
-import React, { useRef } from 'react'
-import { motion, useScroll, useSpring, useTransform } from 'motion/react'
+import React, { useRef } from "react";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
 
 interface TimelineData {
-  date: string
-  title: string
-  description: string
+  date: string;
+  title: string;
+  description: string;
 }
 
 const TimelineItem = ({
   item,
   index,
 }: {
-  item: TimelineData
-  index: number
+  item: TimelineData;
+  index: number;
 }) => {
-  const ref = useRef<HTMLLIElement>(null)
+  const ref = useRef<HTMLLIElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start 90%', 'start 40%'],
-  })
+    offset: ["start 90%", "start 40%"],
+  });
 
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
-  const x = useTransform(scrollYProgress, [0, 1], [-20, 0])
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const x = useTransform(scrollYProgress, [0, 1], [-20, 0]);
 
-  const dotScale = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1.3, 1])
-  const dotOpacity = useTransform(scrollYProgress, [0, 0.4], [0, 1])
+  const dotScale = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1.3, 1]);
+  const dotOpacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
 
   return (
     <li ref={ref} className="mb-12 ms-6 relative">
@@ -39,33 +39,35 @@ const TimelineItem = ({
 
       {/* Content */}
       <motion.div style={{ opacity, x }}>
-        <time className="text-xs font-medium text-secondary tracking-wide uppercase mb-1 block">
+        <time className="text-xs font-medium text-secondary dark:text-neutral-200 tracking-wide uppercase mb-1 block">
           {item.date}
         </time>
         <h3 className="text-base font-semibold text-heading mb-1">
           {item.title}
         </h3>
-        <p className="text-sm font-normal leading-relaxed">{item.description}</p>
+        <p className="text-sm font-normal leading-relaxed">
+          {item.description}
+        </p>
       </motion.div>
     </li>
-  )
-}
+  );
+};
 
 const Timeline = ({ data }: { data: TimelineData[] }) => {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start 80%', 'end 60%'],
-  })
+    offset: ["start 80%", "end 60%"],
+  });
 
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 80,
     damping: 20,
     restDelta: 0.001,
-  })
+  });
 
-  const lineScaleY = useTransform(smoothProgress, [0, 1], [0, 1])
+  const lineScaleY = useTransform(smoothProgress, [0, 1], [0, 1]);
 
   return (
     <div ref={containerRef} className="relative">
@@ -80,7 +82,7 @@ const Timeline = ({ data }: { data: TimelineData[] }) => {
         ))}
       </ol>
     </div>
-  )
-}
+  );
+};
 
-export default Timeline
+export default Timeline;

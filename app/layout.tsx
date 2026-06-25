@@ -5,6 +5,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Footer from "./navbar/Footer";
 import { Toaster } from "sonner";
+import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
 
 const geist = Geist({
@@ -131,6 +132,7 @@ export default function RootLayout({
     <ViewTransitions>
       <html
         lang="en"
+        suppressHydrationWarning
         className={cn(
           "h-full",
           "antialiased",
@@ -139,7 +141,7 @@ export default function RootLayout({
           geist.variable,
         )}
       >
-        <body className="relative min-h-full flex flex-col select-none">
+        <body className="relative min-h-full flex flex-col select-none bg-neutral-200 dark:bg-neutral-800">
           <Script
             id="schema"
             type="application/ld+json"
@@ -169,11 +171,18 @@ export default function RootLayout({
               }),
             }}
           />
-          <main className="flex-1 flex flex-col w-full">{children}</main>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <main className="flex-1 flex flex-col w-full">{children}</main>
 
-          <Footer />
+            <Footer />
 
-          <Toaster position="bottom-right" richColors />
+            <Toaster position="bottom-right" richColors />
+          </ThemeProvider>
         </body>
       </html>
     </ViewTransitions>
