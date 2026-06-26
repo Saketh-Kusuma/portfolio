@@ -13,7 +13,7 @@ export default function Home() {
     <div>
       <NavbarHome />
       <div className="flex-1 w-full flex flex-col">
-        <Container className="flex-1 px-8 pt-10 md:pt-15 md:px-20">
+        <Container className="flex-1 px-8 pt-15 md:pt-20 md:px-20">
           <FadeUp>
             <div className="flex items-center gap-4 pb-2">
               <Image
@@ -25,11 +25,14 @@ export default function Home() {
                 className="rounded-full"
               />
               <div className="flex flex-col">
-                <h1 className="text-2xl text-primary font-medium">
+                <h1 className="text-2xl text-primary dark:text-white font-medium">
                   Saketh Kusuma
                 </h1>
                 {/* <h2 className="text-secondary text-sm">Software engineer</h2> */}
-                <Link href="/contact" className="text-secondary text-sm">
+                <Link
+                  href="/contact"
+                  className="text-secondary dark:text-neutral-400 text-sm"
+                >
                   @kusumasaketh92
                 </Link>
               </div>
@@ -44,7 +47,7 @@ export default function Home() {
             <Paragraph className="pt-2">
               reach me at{" "}
               <Link
-                className="text-primary"
+                className="text-primary dark:text-white"
                 href="https://www.linkedin.com/in/saketh-kusuma"
                 target="_blank"
               >
@@ -56,7 +59,7 @@ export default function Home() {
                 href={"/resume/SakethKusuma_SoftwareEngineer.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-neutral-700 flex items-center gap-1"
+                className="hover:text-neutral-700 dark:text-neutral-200 flex items-center gap-1"
               >
                 View Resume
                 <ArrowUpRight className="h-3 w-3" />
@@ -67,7 +70,7 @@ export default function Home() {
             <Projects />
             <Link
               href={"/projects"}
-              className="text-xs md:text-sm flex items-center gap-1 group justify-end pb-5 text-neutral-600 dark:text-neutral-400"
+              className="text-xs md:text-sm flex items-center gap-1 group justify-end pb-5 text-neutral-600 dark:text-neutral-200"
             >
               <span>view all projects</span>
               <ArrowRight size={13} strokeWidth={2} />
@@ -78,7 +81,7 @@ export default function Home() {
               <LandingBlogs />
               <Link
                 href={"/blog"}
-                className="text-xs md:text-sm flex items-center gap-1 group justify-end pt-4 md:pt-1 pb-4 text-neutral-600 dark:text-neutral-400"
+                className="text-xs md:text-sm flex items-center gap-1 group justify-end pt-4 md:pt-1 pb-4 text-neutral-600 dark:text-neutral-200"
               >
                 <span>browse all blogs</span>
                 <ArrowRight size={13} strokeWidth={2} />

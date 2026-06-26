@@ -1,116 +1,116 @@
 export const skills = [
   {
-    imgSrc: "https://skillicons.dev/icons?i=java",
+    icon: "java",
     skill: "Java",
     borderColor: "#ED8B00",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=js",
+    icon: "js",
     skill: "JavaScript",
     borderColor: "#F7DF1E",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=ts",
+    icon: "ts",
     skill: "TypeScript",
     borderColor: "#3178C6",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=mysql",
+    icon: "mysql",
     skill: "SQL",
     borderColor: "#336791",
   },
 
   {
-    imgSrc: "https://skillicons.dev/icons?i=html",
+    icon: "html",
     skill: "HTML5",
     borderColor: "#E34F26",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=css",
+    icon: "css",
     skill: "CSS3",
     borderColor: "#1572B6",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=tailwind",
+    icon: "tailwind",
     skill: "Tailwind CSS",
     borderColor: "#06B6D4",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=react",
+    icon: "react",
     skill: "React.js",
     borderColor: "#61DAFB",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=nextjs",
+    icon: "nextjs",
     skill: "Next.js",
     borderColor: "#FFFFFF",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=redux",
+    icon: "redux",
     skill: "Redux Toolkit",
     borderColor: "#764ABC",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=react",
+    icon: "react",
     skill: "Shadcn UI",
     borderColor: "#FFFFFF",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=flutter",
+    icon: "flutter",
     skill: "Framer Motion",
     borderColor: "#0055FF",
   },
 
   {
-    imgSrc: "https://skillicons.dev/icons?i=nodejs",
+    icon: "nodejs",
     skill: "Node.js",
     borderColor: "#339933",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=express",
+    icon: "express",
     skill: "Express.js",
     borderColor: "#FFFFFF",
   },
 
   {
-    imgSrc: "https://skillicons.dev/icons?i=mongodb",
+    icon: "mongodb",
     skill: "MongoDB",
     borderColor: "#47A248",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=postgres",
+    icon: "postgres",
     skill: "PostgreSQL",
     borderColor: "#4169E1",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=firebase",
+    icon: "firebase",
     skill: "Firebase",
     borderColor: "#FFCA28",
   },
 
   {
-    imgSrc: "https://skillicons.dev/icons?i=aws",
+    icon: "aws",
     skill: "AWS EC2",
     borderColor: "#FF9900",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=docker",
+    icon: "docker",
     skill: "Docker",
     borderColor: "#2496ED",
   },
 
   {
-    imgSrc: "https://skillicons.dev/icons?i=git",
+    icon: "git",
     skill: "Git",
     borderColor: "#F05032",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=github",
+    icon: "github",
     skill: "GitHub",
     borderColor: "#FFFFFF",
   },
   {
-    imgSrc: "https://skillicons.dev/icons?i=postman",
+    icon: "postman",
     skill: "Postman",
     borderColor: "#FF6C37",
   },
