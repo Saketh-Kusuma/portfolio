@@ -114,29 +114,20 @@ const Navbar = () => {
             id="hamburger-toggle"
             aria-label="Toggle menu"
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="sm:hidden flex flex-col justify-center items-center w-6 h-6 gap-[3px] rounded-lg focus:outline-none"
+            className="sm:hidden flex justify-center items-center w-9 h-9 rounded-lg focus:outline-none"
           >
-            <motion.span
-              animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.25, ease: "easeInOut" }}
-              className="block h-[2px] w-5 bg-neutral-800 dark:bg-neutral-100 origin-center rounded-full"
-            />
-            <motion.span
-              animate={
-                mobileOpen
-                  ? { opacity: 0, scaleX: 0 }
-                  : { opacity: 1, scaleX: 1 }
-              }
-              transition={{ duration: 0.2 }}
-              className="block h-[2px] w-5 bg-neutral-800 dark:bg-neutral-100 rounded-full"
-            />
-            <motion.span
-              animate={
-                mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }
-              }
-              transition={{ duration: 0.25, ease: "easeInOut" }}
-              className="block h-[2px] w-5 bg-neutral-800 dark:bg-neutral-100 origin-center rounded-full"
-            />
+            <div className="flex flex-col items-end gap-1.5">
+              <motion.span
+                animate={mobileOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
+                className="block h-[2px] w-5 bg-neutral-800 dark:bg-neutral-100 origin-center rounded-full"
+              />
+              <motion.span
+                animate={mobileOpen ? { rotate: -45, y: -4, width: "1.25rem" } : { rotate: 0, y: 0, width: "1rem" }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
+                className="block h-[2px] w-4 bg-neutral-800 dark:bg-neutral-100 origin-center rounded-full"
+              />
+            </div>
           </button>
         </div>
       </motion.nav>
