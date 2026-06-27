@@ -26,6 +26,8 @@ const Navbar = () => {
     { title: "Projects", href: "/projects" },
     { title: "Contact", href: "/contact" },
     { title: "Blog", href: "/blog" },
+    { title: "Experience", href: "/experience" },
+
   ];
   const [hovered, setHovered] = useState<number | null>(null);
   const { scrollY } = useScroll();
