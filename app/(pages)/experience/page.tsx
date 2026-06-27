@@ -51,18 +51,15 @@ const education = [
 export default function ExperiencePage() {
   return (
     <main className="flex-1 flex items-start justify-start gap-10 w-full">
-      <Container className="px-4 sm:px-8 pt-16 sm:pt-20 md:px-20 flex-1 max-w-3xl">
-        {/* Header */}
+      <Container className="px-8 pt-20 md:px-20 flex-1 max-w-3xl">
         <FadeUp>
           <PageHeading>Experience</PageHeading>
         </FadeUp>
 
-        {/* Experience Cards */}
         <div className="pt-6 sm:pt-8 space-y-4 sm:space-y-6">
           {experiences.map((exp, index) => (
             <FadeUp key={index} delay={index * 0.1}>
               <div className="border border-border rounded-lg p-4 sm:p-6 md:p-8 hover:border-foreground/20 transition-colors duration-300">
-                {/* Header Row - Stacks on mobile */}
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-4 mb-4 sm:mb-6">
                   <div className="min-w-0">
                     <h3 className="text-base sm:text-lg font-semibold text-primary dark:text-neutral-200 truncate">
@@ -77,7 +74,6 @@ export default function ExperiencePage() {
                   </span>
                 </div>
 
-                {/* Highlights */}
                 <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                   {exp.highlights.map((highlight, hIndex) => (
                     <div key={hIndex} className="flex gap-2.5 sm:gap-3">
@@ -94,7 +90,6 @@ export default function ExperiencePage() {
                   ))}
                 </div>
 
-                {/* Tech Stack Tags */}
                 <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {exp.stack.map((tech) => (
                     <span
@@ -110,17 +105,15 @@ export default function ExperiencePage() {
           ))}
         </div>
 
-        {/* Divider */}
         <div className="border-t border-border my-6 sm:my-8" />
 
-        {/* Education Section */}
         <FadeUp delay={0.1}>
           <p className="text-sm font-semibold text-primary dark:text-neutral-200 mb-4 sm:mb-6 tracking-wide uppercase">
             Education
           </p>
         </FadeUp>
 
-        <div className="space-y-3 sm:space-y-4">
+        <div className="space-y-1 sm:space-y-2 mb-3">
           {education.map((edu, index) => (
             <FadeUp key={index} delay={0.1 + index * 0.05}>
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4 py-2 sm:py-3 border-b border-border/50 last:border-0">
