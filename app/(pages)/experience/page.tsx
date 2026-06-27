@@ -22,9 +22,6 @@ const experiences = [
       "Engineered 10+ reusable React components and a Shadcn UI library for a production e-commerce platform using Tailwind CSS, reducing UI development time by nearly 30%.",
       "Implemented Redux Toolkit for centralized state management, reducing unnecessary re-renders by 40% and improving responsiveness on product listing pages.",
       "Integrated REST APIs and added Framer Motion animations to improve interaction smoothness and reduce perceived page-load delays by 20%.",
-      "Collaborated in a production codebase using Git, GitHub, and Agile (Scrum) practices, improving team efficiency by an estimated 10%.",
-      "Debugged and resolved UI issues across multiple screens, improving layout consistency and reducing visual defects in the production interface.",
-      "Optimized reusable component structure to support faster feature rollout and cleaner code maintenance across the application.",
     ],
     stack: ["React", "TypeScript", "Shadcn UI", "Tailwind CSS", "Redux Toolkit", "Framer Motion", "REST APIs", "Git"],
   },
@@ -60,112 +57,88 @@ export default function ExperiencePage() {
           <PageHeading>Experience</PageHeading>
         </FadeUp>
 
-        {/* Experience Timeline */}
-<FadeUp>
-            <div className="relative pt-8">
+        {/* Experience Cards */}
+        <div className="pt-8 space-y-6">
           {experiences.map((exp, index) => (
-            <div key={index} className="flex gap-6 pb-12 relative">
-              {/* Vertical line */}
-              {index < experiences.length - 1 && (
-                <div className="absolute left-[7px] top-6 bottom-0 w-px bg-border" />
-              )}
-
-              {/* Timeline Dot */}
-              <div className="flex-shrink-0 mt-1.5 z-10">
-                <div
-                  className={`w-3.5 h-3.5 rounded-full border-2 ${
-                    exp.current
-                      ? "bg-foreground border-foreground"
-                      : "bg-background border-border"
-                  }`}
-                />
-              </div>
-
-              {/* Content */}
-              <div className="flex-1 min-w-0 -mt-0.5">
-                {/* Role & Period */}
-                <div className="flex items-start justify-between gap-4 mb-1">
-                  <span className="text-sm font-semibold text-primary dark:text-neutral-200">
-                    {exp.role}
-                  </span>
-                  <span className="text-xs text-primary dark:text-neutral-200 whitespace-nowrap pt-0.5 opacity-70">
+            <FadeUp key={index} delay={index * 0.1}>
+              <div className="border border-border rounded-lg p-6 md:p-8 hover:border-foreground/20 transition-colors duration-300">
+                {/* Header Row */}
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <div>
+                    <h3 className="text-lg font-semibold text-primary dark:text-neutral-200">
+                      {exp.company}
+                    </h3>
+                    <p className="text-sm text-primary dark:text-neutral-200 opacity-60 mt-0.5">
+                      {exp.role}
+                    </p>
+                  </div>
+                  <span className="text-xs text-primary dark:text-neutral-200 opacity-70 whitespace-nowrap pt-1">
                     {exp.period}
                   </span>
                 </div>
 
-                {/* Company & Location */}
-                <Paragraph className="mb-4 text-sm">
-                  <a
-                    href={exp.companyUrl}
-                    className="hover:text-neutral-700 dark:text-neutral-200 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {exp.company}
-                  </a>
-                  {" · "}
-                  {exp.location}
-                </Paragraph>
-
-                {/* Highlights */}
-                <ul className="space-y-2.5 mb-5">
+                {/* Highlights - 3 key points */}
+                <div className="space-y-4 mb-6">
                   {exp.highlights.map((highlight, hIndex) => (
-                    <li
-                      key={hIndex}
-                      className="text-sm leading-relaxed text-primary dark:text-neutral-200 pl-4 relative"
-                    >
-                      <span className="absolute left-0 top-2 w-1 h-1 rounded-full bg-border" />
-                      {highlight}
-                    </li>
+                    <div key={hIndex} className="flex gap-3">
+                      <span className="text-primary dark:text-neutral-200 opacity-40 mt-1 flex-shrink-0">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                          <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                      </span>
+                      <p className="text-sm leading-relaxed text-primary dark:text-neutral-200">
+                        {highlight}
+                      </p>
+                    </div>
                   ))}
-                </ul>
+                </div>
 
-                {/* Tech Stack */}
+                {/* Tech Stack Tags */}
                 <div className="flex flex-wrap gap-2">
                   {exp.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs px-3 py-1.5 rounded-full border border-border text-primary dark:text-neutral-200 hover:bg-accent/50 transition-colors cursor-default"
+                      className="text-xs px-3 py-1.5 border border-border text-primary dark:text-neutral-200 hover:border-foreground/30 transition-colors"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
               </div>
-            </div>
+            </FadeUp>
           ))}
         </div>
 
-</FadeUp>
         {/* Divider */}
-        <div className="border-t border-border my-4" />
+        <div className="border-t border-border my-8" />
 
         {/* Education Section */}
         <FadeUp delay={0.1}>
-          <p className="text-sm font-semibold text-primary dark:text-neutral-200 mb-6 mt-8 tracking-wide uppercase">
+          <p className="text-sm font-semibold text-primary dark:text-neutral-200 mb-6 tracking-wide uppercase">
             Education
           </p>
         </FadeUp>
 
-       <FadeUp>
-         <div className="space-y-5 mb-3">
+        <div className="space-y-4">
           {education.map((edu, index) => (
-            <div key={index} className="flex justify-between items-start gap-4">
-              <div className="flex-1">
-                <p className="text-sm font-medium text-primary dark:text-neutral-200">
-                  {edu.degree}
-                </p>
-                <Paragraph className="text-xs mt-1">
-                  {edu.institution} · {edu.location}
-                </Paragraph>
+            <FadeUp key={index} delay={0.1 + index * 0.05}>
+              <div className="flex justify-between items-start gap-4 py-3 border-b border-border/50 last:border-0">
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-primary dark:text-neutral-200">
+                    {edu.degree}
+                  </p>
+                  <Paragraph className="text-xs mt-1">
+                    {edu.institution} · {edu.location}
+                  </Paragraph>
+                </div>
+                <span className="text-xs text-primary dark:text-neutral-200 whitespace-nowrap pt-0.5 opacity-70">
+                  {edu.period}
+                </span>
               </div>
-              <span className="text-xs text-primary dark:text-neutral-200 whitespace-nowrap pt-0.5 opacity-70">
-                {edu.period}
-              </span>
-            </div>
+            </FadeUp>
           ))}
         </div>
-       </FadeUp>
       </Container>
     </main>
   );
