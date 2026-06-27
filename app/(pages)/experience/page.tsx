@@ -51,43 +51,43 @@ const education = [
 export default function ExperiencePage() {
   return (
     <main className="flex-1 flex items-start justify-start gap-10 w-full">
-      <Container className="px-8 pt-20 md:px-20 flex-1 max-w-3xl">
+      <Container className="px-4 sm:px-8 pt-16 sm:pt-20 md:px-20 flex-1 max-w-3xl">
         {/* Header */}
         <FadeUp>
           <PageHeading>Experience</PageHeading>
         </FadeUp>
 
         {/* Experience Cards */}
-        <div className="pt-8 space-y-6">
+        <div className="pt-6 sm:pt-8 space-y-4 sm:space-y-6">
           {experiences.map((exp, index) => (
             <FadeUp key={index} delay={index * 0.1}>
-              <div className="border border-border rounded-lg p-6 md:p-8 hover:border-foreground/20 transition-colors duration-300">
-                {/* Header Row */}
-                <div className="flex items-start justify-between gap-4 mb-6">
-                  <div>
-                    <h3 className="text-lg font-semibold text-primary dark:text-neutral-200">
+              <div className="border border-border rounded-lg p-4 sm:p-6 md:p-8 hover:border-foreground/20 transition-colors duration-300">
+                {/* Header Row - Stacks on mobile */}
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-4 mb-4 sm:mb-6">
+                  <div className="min-w-0">
+                    <h3 className="text-base sm:text-lg font-semibold text-primary dark:text-neutral-200 truncate">
                       {exp.company}
                     </h3>
-                    <p className="text-sm text-primary dark:text-neutral-200 opacity-60 mt-0.5">
+                    <p className="text-xs sm:text-sm text-primary dark:text-neutral-200 opacity-60 mt-0.5">
                       {exp.role}
                     </p>
                   </div>
-                  <span className="text-xs text-primary dark:text-neutral-200 opacity-70 whitespace-nowrap pt-1">
+                  <span className="text-xs text-primary dark:text-neutral-200 opacity-70 whitespace-nowrap sm:pt-1">
                     {exp.period}
                   </span>
                 </div>
 
-                {/* Highlights - 3 key points */}
-                <div className="space-y-4 mb-6">
+                {/* Highlights */}
+                <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                   {exp.highlights.map((highlight, hIndex) => (
-                    <div key={hIndex} className="flex gap-3">
-                      <span className="text-primary dark:text-neutral-200 opacity-40 mt-1 flex-shrink-0">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <div key={hIndex} className="flex gap-2.5 sm:gap-3">
+                      <span className="text-primary dark:text-neutral-200 opacity-40 mt-0.5 sm:mt-1 flex-shrink-0">
+                        <svg width="14" height="14" className="sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                           <polyline points="22 4 12 14.01 9 11.01"/>
                         </svg>
                       </span>
-                      <p className="text-sm leading-relaxed text-primary dark:text-neutral-200">
+                      <p className="text-xs sm:text-sm leading-relaxed text-primary dark:text-neutral-200">
                         {highlight}
                       </p>
                     </div>
@@ -95,11 +95,11 @@ export default function ExperiencePage() {
                 </div>
 
                 {/* Tech Stack Tags */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {exp.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs px-3 py-1.5 border border-border text-primary dark:text-neutral-200 hover:border-foreground/30 transition-colors"
+                      className="text-[10px] sm:text-xs px-2 sm:px-3 py-1 sm:py-1.5 border border-border text-primary dark:text-neutral-200 hover:border-foreground/30 transition-colors"
                     >
                       {tech}
                     </span>
@@ -111,28 +111,28 @@ export default function ExperiencePage() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-border my-8" />
+        <div className="border-t border-border my-6 sm:my-8" />
 
         {/* Education Section */}
         <FadeUp delay={0.1}>
-          <p className="text-sm font-semibold text-primary dark:text-neutral-200 mb-6 tracking-wide uppercase">
+          <p className="text-sm font-semibold text-primary dark:text-neutral-200 mb-4 sm:mb-6 tracking-wide uppercase">
             Education
           </p>
         </FadeUp>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {education.map((edu, index) => (
             <FadeUp key={index} delay={0.1 + index * 0.05}>
-              <div className="flex justify-between items-start gap-4 py-3 border-b border-border/50 last:border-0">
-                <div className="flex-1">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4 py-2 sm:py-3 border-b border-border/50 last:border-0">
+                <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-primary dark:text-neutral-200">
                     {edu.degree}
                   </p>
-                  <Paragraph className="text-xs mt-1">
+                  <Paragraph className="text-xs mt-0.5">
                     {edu.institution} · {edu.location}
                   </Paragraph>
                 </div>
-                <span className="text-xs text-primary dark:text-neutral-200 whitespace-nowrap pt-0.5 opacity-70">
+                <span className="text-xs text-primary dark:text-neutral-200 whitespace-nowrap opacity-70">
                   {edu.period}
                 </span>
               </div>
