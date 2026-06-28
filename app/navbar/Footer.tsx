@@ -11,7 +11,7 @@ import Container from "../components/Container";
 const Footer = () => {
   return (
     <Container className="">
-      <Container className="flex h-full justify-between flex-wrap w-full px-8 md:px-20 py-4 md:py-5 border-t border-neutral-100 dark:border-neutral-800">
+      <Container className="flex h-full justify-between flex-wrap w-full px-8 md:px-20 py-4 md:py-5 border-t border-neutral-300 dark:border-neutral-800">
         <FooterParagraph />
         <div className="flex items-center justify-center gap-4">
           <Link
