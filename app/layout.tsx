@@ -141,7 +141,7 @@ export default function RootLayout({
           geist.variable,
         )}
       >
-        <body className="relative min-h-full flex flex-col select-none bg-neutral-200 dark:bg-neutral-800">
+        <body className="relative min-h-full flex flex-col select-none bg-neutral-100 dark:bg-neutral-800">
           <Script
             id="schema"
             type="application/ld+json"

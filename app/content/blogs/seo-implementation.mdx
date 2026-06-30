@@ -1,0 +1,306 @@
+# How I Optimized My Next.js Portfolio for Google Search
+
+When I completed my portfolio, I realized something important.
+
+A beautiful portfolio is useless if nobody can discover it.
+
+My next goal wasn't building another feature.
+
+It was making my portfolio visible on **Google**, **Bing**, **DuckDuckGo**, and every major search engine.
+
+This article documents everything I implemented.
+
+---
+
+## The Goal
+
+I wanted my portfolio to rank when someone searched for:
+
+- Saketh Kusuma
+- Saketh Kusuma Portfolio
+- Saketh Kusuma React Developer
+- Saketh Kusuma Software Developer
+
+Eventually I also want to rank for technical searches through blogging.
+
+---
+
+# Step 1 — Optimized Metadata
+
+The first improvement was replacing generic metadata with properly optimized metadata.
+
+```ts
+export const metadata = {
+  metadataBase: new URL("https://saketh-kusuma.vercel.app"),
+
+  title: {
+    default: "Saketh Kusuma | Software Developer | React, Next.js & Java",
+    template: "%s | Saketh Kusuma",
+  },
+
+  description:
+    "Portfolio of Saketh Kusuma, a Software Developer specializing in React, Next.js, Java, Node.js, MongoDB, and AWS.",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+```
+
+This helps search engines understand what every page is about.
+
+---
+
+# Step 2 — Open Graph Metadata
+
+Whenever someone shares my portfolio on LinkedIn, Discord, or WhatsApp, I wanted a professional preview.
+
+```ts
+openGraph: {
+  title: "...",
+  description: "...",
+  images: [
+    {
+      url: "/og-image.png"
+    }
+  ]
+}
+```
+
+---
+
+# Step 3 — Twitter Cards
+
+Twitter Cards allow beautiful previews when links are shared on X.
+
+```ts
+twitter: {
+  card: "summary_large_image";
+}
+```
+
+---
+
+# Step 4 — Canonical URLs
+
+Duplicate content can confuse search engines.
+
+Adding canonical URLs tells Google which page is the primary version.
+
+```ts
+alternates: {
+  canonical: "/";
+}
+```
+
+---
+
+# Step 5 — Robots.txt
+
+Next.js makes this incredibly simple.
+
+```ts
+export default function robots() {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+    },
+    sitemap: "https://saketh-kusuma.vercel.app/sitemap.xml",
+  };
+}
+```
+
+Now every crawler knows where to find my sitemap.
+
+---
+
+# Step 6 — Sitemap.xml
+
+A sitemap tells search engines every page on the website.
+
+```ts
+export default function sitemap() {
+  return [
+    {
+      url: "https://saketh-kusuma.vercel.app",
+      priority: 1,
+    },
+  ];
+}
+```
+
+I also included:
+
+- Home
+- About
+- Projects
+- Blog
+- Contact
+
+---
+
+# Step 7 — Favicons
+
+I added
+
+- favicon.ico
+- favicon-16x16.png
+- favicon-32x32.png
+- apple-touch-icon.png
+- android icons
+- site.webmanifest
+
+Google can now display my favicon in search results.
+
+---
+
+# Step 8 — Manifest
+
+```ts
+manifest: "/site.webmanifest";
+```
+
+This improves support for Progressive Web Apps.
+
+---
+
+# Step 9 — Theme Color
+
+```ts
+themeColor: "#0A0A0A";
+```
+
+This allows supported browsers to match the UI color.
+
+---
+
+# Step 10 — Structured Data
+
+One of the most powerful SEO improvements was adding JSON-LD.
+
+```tsx
+<script
+type="application/ld+json"
+>
+```
+
+Using Schema.org I described:
+
+- Person
+- Website
+
+Google can now better understand my portfolio.
+
+---
+
+# Step 11 — Open Graph Image
+
+I created
+
+```
+public/og-image.png
+```
+
+Size:
+
+```
+1200 × 630
+```
+
+This image appears whenever my website is shared online.
+
+---
+
+# Step 12 — Search Console
+
+After deployment I verified my website in:
+
+- Google Search Console
+- Bing Webmaster Tools
+
+Then submitted
+
+```
+sitemap.xml
+```
+
+for indexing.
+
+---
+
+# Step 13 — Performance Optimization
+
+I optimized
+
+- Images
+- Fonts
+- Layout shifts
+- Metadata
+- Static generation
+
+The goal was achieving excellent Lighthouse scores.
+
+---
+
+# Step 14 — Blogging Strategy
+
+SEO is much more than metadata.
+
+Search engines love useful content.
+
+Instead of publishing random articles, I decided to focus on topics I work with every day.
+
+Examples include:
+
+- React
+- Next.js
+- TypeScript
+- Java
+- Node.js
+- AWS
+- MongoDB
+- Software Engineering
+
+Every blog creates another opportunity for someone to discover my portfolio.
+
+---
+
+# Results
+
+After implementing these improvements my portfolio started appearing in Google search results for my name.
+
+The search snippet now displays:
+
+- Optimized title
+- Professional description
+- Correct metadata
+
+The next milestone is improving rankings across Google, Bing, DuckDuckGo, Brave Search, and other search engines while consistently publishing technical content.
+
+---
+
+# What's Next?
+
+SEO is not a one-time task.
+
+My ongoing plan is:
+
+- Publish one technical article every week.
+- Continue improving page performance.
+- Build quality backlinks through GitHub and LinkedIn.
+- Keep projects updated.
+- Monitor Google Search Console regularly.
+
+Small improvements compound over time.
+
+---
+
+## Final Thoughts
+
+Building a portfolio is only the first step.
+
+Making it discoverable is what allows recruiters, developers, and companies to actually find your work.
+
+If you're building a portfolio with **Next.js**, investing time in SEO is one of the highest-impact improvements you can make.
