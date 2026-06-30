@@ -12,7 +12,7 @@ import type { Metadata } from "next";
 import TechStackList from "@/app/components/TechStack-List";
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "About | Saketh Kusuma",
+    title: "About",
     description:
       "Learn more about Saketh Kusuma, a Full Stack Developer passionate about building modern web applications with React, Next.js, TypeScript, Node.js, and MongoDB. Discover my journey, skills, and experience in software development.",
 

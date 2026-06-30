@@ -6,7 +6,7 @@ import FadeUp from "@/app/components/FadeUp";
 import type { Metadata } from "next";
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Blogs | Saketh Kusuma",
+    title: "Blogs",
     description:
       "A collection of technical blogs by Saketh Kusuma, covering topics like React, Next.js, TypeScript, Node.js, software engineering, and my journey as a developer.",
     keywords: [

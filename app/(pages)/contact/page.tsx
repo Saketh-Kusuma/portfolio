@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Contact | Saketh Kusuma",
+    title: "Contact",
     description:
       "Get in touch with Saketh Kusuma for software development opportunities, freelance projects, collaborations, or any questions. I'd love to hear from you.",
 

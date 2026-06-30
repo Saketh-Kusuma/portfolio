@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props) {
     };
   }
   return {
-    title: `Blog | ${blog.title} by Saketh Kusuma`,
+    title: `Blog | ${blog.title}`,
     description: blog.description,
   };
 }
