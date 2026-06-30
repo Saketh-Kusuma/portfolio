@@ -5,7 +5,7 @@ import Paragraph from "@/app/components/Paragraph";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Experience | Saketh Kusuma",
+  title: "Experience",
   description:
     "Work experience and education of Saketh Kusuma, a full-stack developer specializing in React, Node.js, and the MERN stack.",
 };
@@ -23,7 +23,16 @@ const experiences = [
       "Implemented Redux Toolkit for centralized state management, reducing unnecessary re-renders by 40% and improving responsiveness on product listing pages.",
       "Integrated REST APIs and added Framer Motion animations to improve interaction smoothness and reduce perceived page-load delays by 20%.",
     ],
-    stack: ["React", "TypeScript", "Shadcn UI", "Tailwind CSS", "Redux Toolkit", "Framer Motion", "REST APIs", "Git"],
+    stack: [
+      "React",
+      "TypeScript",
+      "Shadcn UI",
+      "Tailwind CSS",
+      "Redux Toolkit",
+      "Framer Motion",
+      "REST APIs",
+      "Git",
+    ],
   },
 ];
 
@@ -78,9 +87,19 @@ export default function ExperiencePage() {
                   {exp.highlights.map((highlight, hIndex) => (
                     <div key={hIndex} className="flex gap-2.5 sm:gap-3">
                       <span className="text-primary dark:text-neutral-200 opacity-40 mt-0.5 sm:mt-1 flex-shrink-0">
-                        <svg width="14" height="14" className="sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                          <polyline points="22 4 12 14.01 9 11.01"/>
+                        <svg
+                          width="14"
+                          height="14"
+                          className="sm:w-4 sm:h-4"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                          <polyline points="22 4 12 14.01 9 11.01" />
                         </svg>
                       </span>
                       <p className="text-xs sm:text-sm leading-relaxed text-primary dark:text-neutral-200">
@@ -105,11 +124,8 @@ export default function ExperiencePage() {
           ))}
         </div>
 
-
         <FadeUp delay={0.1}>
-          <PageHeading className="mt-8">
-            Education
-          </PageHeading>
+          <PageHeading className="mt-8">Education</PageHeading>
         </FadeUp>
 
         <div className="space-y-1 sm:space-y-2 mb-3">

@@ -5,7 +5,7 @@ import FadeUp from "@/app/components/FadeUp";
 import { Metadata } from "next";
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Projects | Saketh Kusuma",
+    title: "Projects",
     description:
       "Explore software development projects by Saketh Kusuma, including full-stack web applications built with React, Next.js, TypeScript, Node.js, Express.js, MongoDB, Firebase, and AWS.",
 
