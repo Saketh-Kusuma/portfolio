@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     description:
       "Portfolio showcasing projects, blogs, and software engineering expertise.",
     url: "https://saketh-kusuma.vercel.app",
-    siteName: "Saketh Kusuma",
+    siteName: "Saketh Kusuma Portfolio",
     locale: "en_US",
     type: "website",
     images: [
