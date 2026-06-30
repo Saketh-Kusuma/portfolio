@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation";
 import { blogs } from "../../../lib/blogs";
-import { Container } from "lucide-react";
-
 interface Props {
   params: Promise<{
     slug: string;
@@ -31,7 +29,7 @@ export default async function BlogPage({ params }: Props) {
   const BlogContent = (await blog.loader()).default;
 
   return (
-    <div className="flex-1 pt-15 px-8 md:pt-20 md:pl-20 prose dark:prose-invert">
+    <div className="flex-1 pt-20 px-8 md:pl-20 prose dark:prose-invert mb-3">
       <BlogContent />
     </div>
   );

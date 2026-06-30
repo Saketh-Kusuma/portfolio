@@ -28,8 +28,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 const Contact = () => {
   return (
-    <div className="flex-1 flex items-start justify-start w-full">
-      <Container className="px-8 pt-20 md:px-20 mb-5">
+    <div className="flex-1 flex items-start justify-start gap-10 w-full">
+      <Container className="px-8 pt-20 md:px-20">
         <FadeUp>
           <PageHeading>Contact</PageHeading>
           <Paragraph className="pt-4">

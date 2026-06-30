@@ -30,7 +30,7 @@ const TimelineItem = ({
   const dotOpacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
 
   return (
-    <li ref={ref} className="mb-12 ms-6 relative">
+    <li ref={ref} className="mb-3 ms-6 relative">
       {/* Animated dot */}
       <motion.div
         style={{ scale: dotScale, opacity: dotOpacity }}

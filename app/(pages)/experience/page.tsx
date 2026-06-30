@@ -50,8 +50,8 @@ const education = [
 
 export default function ExperiencePage() {
   return (
-    <main className="flex-1 flex items-start justify-start gap-10 w-full">
-      <Container className="px-8 pt-20 md:px-20 flex-1 max-w-3xl">
+    <div className="flex-1 flex items-start justify-start gap-10 w-full">
+      <Container className="px-8 pt-20 md:px-20">
         <FadeUp>
           <PageHeading>Experience</PageHeading>
         </FadeUp>
@@ -132,6 +132,6 @@ export default function ExperiencePage() {
           ))}
         </div>
       </Container>
-    </main>
+    </div>
   );
 }

@@ -39,7 +39,7 @@ export default function Home() {
             </div>
             <Paragraph className="pt-2">i&apos;m a software engineer</Paragraph>
             <Paragraph className="pt-2">
-              I build modern, responsive, and scalable web applications.
+              i build modern, responsive, and scalable web applications.
             </Paragraph>
             <Paragraph className="pt-2">
               occasionally, i watch movies, test custom roms, and take photos

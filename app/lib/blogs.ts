@@ -8,4 +8,12 @@ export const blogs = [
   date: "Wednesday, Jun 24, 2026",
   loader: () => import("../content/blogs/first-blog.mdx"),
 },
+{
+  slug: "seo-implementation",
+  title: "How I Optimized My Next.js Portfolio for SEO",
+  description: "A step-by-step guide to SEO for Next.js portfolios with metadata, Open Graph, sitemaps, robots.txt, structured data, and more.",
+  image: "/blogs/seo-implementation.png",
+  date: "Monday, Jun 30, 2026",
+  loader: () => import("../content/blogs/seo-implementation.mdx"),
+}
 ];
