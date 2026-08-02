@@ -26,6 +26,7 @@ export default function MobileDock() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [pressedItem, setPressedItem] = useState<string | null>(null);
 
   // Auto-hide on scroll down, show on scroll up
   useEffect(() => {
@@ -64,6 +65,8 @@ export default function MobileDock() {
                   ? pathname === "/"
                   : pathname.startsWith(item.href);
 
+              const isPressed = pressedItem === item.href;
+
               return (
                 <Link
                   key={item.href}
@@ -71,6 +74,10 @@ export default function MobileDock() {
                   id={`dock-${item.title.toLowerCase()}`}
                   aria-label={item.title}
                   className="relative flex flex-col items-center justify-center w-11 h-11 rounded-full transition-colors duration-200 group"
+                  onPointerDown={() => {
+                    setPressedItem(item.href);
+                    setTimeout(() => setPressedItem(null), 900);
+                  }}
                 >
                   {/* Active background bubble */}
                   {isActive && (
@@ -109,10 +116,21 @@ export default function MobileDock() {
                     />
                   )}
 
-                  {/* Tooltip label on hover */}
-                  <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 px-2 py-1 text-[11px] font-medium rounded-lg bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 opacity-0 group-hover:opacity-100 transition-opacity duration-150 whitespace-nowrap shadow-md">
-                    {item.title}
-                  </span>
+                  {/* Tap label — shows on press (mobile-friendly) */}
+                  <AnimatePresence>
+                    {isPressed && (
+                      <motion.span
+                        key="tap-label"
+                        initial={{ opacity: 0, y: 4, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 4, scale: 0.9 }}
+                        transition={{ duration: 0.15 }}
+                        className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 px-2 py-1 text-[11px] font-medium rounded-lg bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 whitespace-nowrap shadow-md"
+                      >
+                        {item.title}
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
                 </Link>
               );
             })}
