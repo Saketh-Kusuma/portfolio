@@ -86,8 +86,9 @@ export default function MobileDock() {
                       className="absolute inset-0 rounded-full bg-neutral-200 dark:bg-neutral-700"
                       transition={{
                         type: "spring",
-                        stiffness: 380,
-                        damping: 30,
+                        stiffness: 180,
+                        damping: 26,
+                        mass: 0.8,
                       }}
                     />
                   )}
@@ -110,8 +111,9 @@ export default function MobileDock() {
                       className="absolute -bottom-1 w-1 h-1 rounded-full bg-neutral-700 dark:bg-neutral-300"
                       transition={{
                         type: "spring",
-                        stiffness: 380,
-                        damping: 30,
+                        stiffness: 180,
+                        damping: 26,
+                        mass: 0.8,
                       }}
                     />
                   )}
