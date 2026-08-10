@@ -2,13 +2,158 @@
 @plugin '@tailwindcss/typography';
 @custom-variant dark (&:is(.dark *));
 
+/*
+  Semantic design tokens.
+  Raw values live in :root / .dark so they flip with the theme at runtime,
+  then get mapped into Tailwind's color system via `@theme inline` below.
+  Neutral values match Tailwind's default `neutral-*` scale exactly so these
+  tokens never seam against hardcoded `neutral-*` utilities elsewhere.
+*/
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(0.97 0 0);          /* neutral-100 */
+  --foreground: oklch(0.269 0 0);         /* neutral-800 */
+
+  --primary: oklch(0.269 0 0);            /* neutral-800 — main text / solid fills */
+  --primary-foreground: oklch(0.985 0 0); /* neutral-50  — text on primary */
+
+  --secondary: oklch(0.556 0 0);          /* neutral-500 — muted text */
+  --secondary-foreground: oklch(0.269 0 0);
+
+  --muted: oklch(0.922 0 0);              /* neutral-200 */
+  --muted-foreground: oklch(0.556 0 0);   /* neutral-500 */
+
+  --accent: oklch(0.922 0 0);             /* neutral-200 — hover surfaces */
+  --accent-foreground: oklch(0.269 0 0);
+
+  --card: oklch(0.985 0 0);               /* neutral-50  — lifts off the page */
+  --card-foreground: oklch(0.269 0 0);
+
+  --popover: oklch(0.985 0 0);
+  --popover-foreground: oklch(0.269 0 0);
+
+  --border: oklch(0.87 0 0);              /* neutral-300 */
+  --input: oklch(0.87 0 0);
+  --ring: oklch(0.708 0 0);               /* neutral-400 */
+
+  --heading: oklch(0.205 0 0);            /* neutral-900 */
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+
+  /* Warm brand accent (matches the footer heart). Used sparingly for now;
+     swap this single value to re-tune the whole accent. */
+  --brand: oklch(0.72 0.09 34);
+  --brand-foreground: oklch(0.985 0 0);
+
+  --shadow-aceternity:
+    0px 2px 3px -1px rgba(0, 0, 0, 0.1), 0px 1px 0px 0px rgba(25, 28, 33, 0.02), 0px 0px 0px 1px rgba(25, 28, 33, 0.08);
+}
+
+.dark {
+  --background: oklch(0.269 0 0);         /* neutral-800 */
+  --foreground: oklch(0.97 0 0);          /* neutral-100 */
+
+  --primary: oklch(0.97 0 0);             /* neutral-100 */
+  --primary-foreground: oklch(0.205 0 0); /* neutral-900 */
+
+  --secondary: oklch(0.708 0 0);          /* neutral-400 */
+  --secondary-foreground: oklch(0.97 0 0);
+
+  --muted: oklch(0.371 0 0);              /* neutral-700 */
+  --muted-foreground: oklch(0.708 0 0);   /* neutral-400 */
+
+  --accent: oklch(0.371 0 0);             /* neutral-700 */
+  --accent-foreground: oklch(0.97 0 0);
+
+  --card: oklch(0.205 0 0);               /* neutral-900 — subtle depth vs bg */
+  --card-foreground: oklch(0.97 0 0);
+
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.97 0 0);
+
+  --border: oklch(0.371 0 0);             /* neutral-700 */
+  --input: oklch(0.371 0 0);
+  --ring: oklch(0.556 0 0);               /* neutral-500 */
+
+  --heading: oklch(0.97 0 0);
+
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+
+  --brand: oklch(0.75 0.09 34);
+  --brand-foreground: oklch(0.205 0 0);
+}
+
 @theme inline {
---shadow-aceternity:
-  0px 2px 3px -1px rgba(0, 0, 0, 0.1), 0px 1px 0px 0px rgba(25, 28, 33, 0.02), 0px 0px 0px 1px rgba(25, 28, 33, 0.08);
-    --color-primary:var(--color-neutral-800);
-    --color-secondary:var(--color-neutral-500);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-heading: var(--heading);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  /* Tailwind v4 defaults bare `border`/`ring` to currentColor; anchor them to
+     the token so utilities like `border` (no color) read as intended. */
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    color: var(--color-foreground);
+  }
+
+  ::selection {
+    background-color: color-mix(in oklch, var(--color-brand) 28%, transparent);
+  }
+
+  /* Keep native UI (scrollbars, form controls) theme-aware. */
+  :root {
+    color-scheme: light;
   }
   .dark {
-    --color-primary:var(--color-neutral-100);
-    --color-secondary:var(--color-neutral-400);
+    color-scheme: dark;
+  }
 }

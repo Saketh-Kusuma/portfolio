@@ -67,9 +67,10 @@ const Navbar = () => {
           duration: 0.3,
           ease: "linear",
         }}
-        className={`${shadow ? "rounded-4xl bg-neutral-200 dark:bg-neutral-900" : ""} fixed inset-x-0 top-0 z-100 max-w-4xl mx-auto flex items-center justify-between px-3 py-3 w-full mt-2`}
+        className={`${shadow ? "rounded-4xl bg-neutral-200 dark:bg-neutral-900" : ""} fixed inset-x-0 top-0 z-100 max-w-4xl min-w-fit mx-auto flex items-center justify-between gap-3 px-3 py-3 w-full mt-2`}
       >
         <motion.div
+          className="shrink-0"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
@@ -84,8 +85,9 @@ const Navbar = () => {
               width="100"
               height="100"
               alt="avatar"
-              loading="eager"
-              className="h-10 w-10 rounded-full"
+              priority
+              sizes="40px"
+              className="h-10 w-10 shrink-0 rounded-full object-cover"
             />
           </Link>
         </motion.div>
@@ -93,7 +95,7 @@ const Navbar = () => {
         <div className="hidden sm:flex items-center">
           {navItems.map((item, index) => (
             <Link
-              className="text-sm relative px-2 py-1"
+              className="text-sm relative px-3 py-1.5 text-secondary hover:text-primary transition-colors"
               href={item.href}
               key={index}
               onMouseEnter={() => setHovered(index)}
@@ -102,18 +104,20 @@ const Navbar = () => {
               {hovered === index && (
                 <motion.span
                   layoutId="hovered-span"
-                  className="h-full w-full absolute inset-0 rounded-2xl bg-neutral-300 dark:bg-neutral-600"
+                  className="h-full w-full absolute inset-0 rounded-full bg-neutral-300 dark:bg-neutral-600"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
               <span className="relative z-10">{item.title}</span>
             </Link>
           ))}
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <ModeToggle />
           <button
             id="hamburger-toggle"
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((prev) => !prev)}
             className="sm:hidden flex justify-center items-center w-9 h-9 rounded-lg focus:outline-none"
           >

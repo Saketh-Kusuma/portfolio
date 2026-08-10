@@ -13,9 +13,10 @@ const TechStackList = () => {
       {skills.map((skill, index) => (
         <Badge
           key={index}
+          style={{ "--brand-border": skill.borderColor } as React.CSSProperties}
           className={cn(
-            "w-max py-5 flex justify-start items-center border-2 gap-2",
-            `hover:border-[${skill.borderColor}]`,
+            "w-max py-5 flex justify-start items-center border-2 gap-2 border-border bg-card/40",
+            "transition-colors duration-200 hover:border-[var(--brand-border)] hover:no-underline",
           )}
           variant={"link"}
         >

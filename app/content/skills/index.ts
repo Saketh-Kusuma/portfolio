@@ -51,11 +51,6 @@ export const skills = [
     borderColor: "#764ABC",
   },
   {
-    icon: "react",
-    skill: "Shadcn UI",
-    borderColor: "#FFFFFF",
-  },
-  {
     icon: "flutter",
     skill: "Framer Motion",
     borderColor: "#0055FF",

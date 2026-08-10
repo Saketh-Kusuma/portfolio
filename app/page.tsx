@@ -19,10 +19,11 @@ export default function Home() {
               <Image
                 src={"/avatar-hero1.png"}
                 alt="Saketh Kusuma"
-                loading="eager"
+                priority
+                sizes="80px"
                 width={80}
                 height={80}
-                className="rounded-full"
+                className="rounded-full ring-1 ring-border"
               />
               <div className="flex flex-col">
                 <h1 className="text-2xl text-primary dark:text-white font-medium">
