@@ -38,7 +38,7 @@ export default function ContactForm() {
       } else {
         toast.error("Failed to send message. Please try again later.");
       }
-    } catch {
+    } catch (error) {
       toast.error("An error occurred while sending the message.");
     } finally {
       setIsSubmitting(false);
@@ -63,7 +63,7 @@ export default function ContactForm() {
             id="name"
             name="name"
             required
-            className="px-4 py-2 bg-transparent border border-input rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-ring text-sm text-primary dark:text-neutral-200"
+            className="px-4 py-2 bg-transparent border border-neutral-300 dark:border-neutral-700 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 text-sm text-primary dark:text-neutral-200"
             placeholder="John Doe"
           />
         </div>
@@ -80,7 +80,7 @@ export default function ContactForm() {
             id="email"
             name="email"
             required
-            className="px-4 py-2 bg-transparent border border-input rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-ring text-sm text-primary dark:text-neutral-200"
+            className="px-4 py-2 bg-transparent border border-neutral-300 dark:border-neutral-700 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 text-sm text-primary dark:text-neutral-200"
             placeholder="john@example.com"
           />
         </div>
@@ -97,7 +97,7 @@ export default function ContactForm() {
             id="subject"
             name="subject"
             required
-            className="px-4 py-2 bg-transparent border border-input rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-ring text-sm text-primary dark:text-neutral-200"
+            className="px-4 py-2 bg-transparent border border-neutral-300 dark:border-neutral-700 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 text-sm text-primary dark:text-neutral-200"
             placeholder="How can I help you?"
           />
         </div>
@@ -114,7 +114,7 @@ export default function ContactForm() {
             name="message"
             rows={5}
             required
-            className="px-4 py-2 bg-transparent border border-input rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-ring text-sm resize-none text-primary"
+            className="px-4 py-2 bg-transparent border border-neutral-300 dark:border-neutral-700 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600 text-sm resize-none text-primary"
             placeholder="Write your message here..."
           />
         </div>

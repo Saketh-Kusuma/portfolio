@@ -1,4 +1,5 @@
 "use client";
+import Container from "../components/Container";
 import { Link } from "next-view-transitions";
 import {
   motion,
@@ -8,9 +9,24 @@ import {
 } from "motion/react";
 import { useState, useEffect } from "react";
 import { ModeToggle } from "@/components/theme-toggle";
-import { navItems } from "@/app/content/nav";
+
+function getWidthRange(vw: number): [string, string] {
+  if (vw < 640) return ["100%", "100%"];
+  if (vw < 768) return ["100%", "100%"];
+  if (vw < 1024) return ["100", "100%"];
+
+  return ["100%", "100%"];
+}
 
 const NavbarHome = () => {
+  const navItems = [
+    { title: "About", href: "/about" },
+    { title: "Projects", href: "/projects" },
+    { title: "Experience", href: "/experience" },
+    { title: "Blog", href: "/blog" },
+    { title: "Contact", href: "/contact" },
+  ];
+
   const [hovered, setHovered] = useState<number | null>(null);
   const { scrollY } = useScroll();
   const [shadow, setShadow] = useState<boolean>(false);

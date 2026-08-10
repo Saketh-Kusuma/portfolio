@@ -1,32 +1,42 @@
 "use client";
-import MediaCard from "./MediaCard";
-
-/**
- * Plain, serializable shape. Deliberately NOT the Blog type from lib/blogs —
- * that carries a `loader` function, and functions can't cross into a client
- * component. The server page maps to this before rendering.
- */
-export type BlogCard = {
-  slug: string;
-  title: string;
-  description: string;
-  image: string;
-  meta: string;
-};
-
-const BlogsList = ({ blogs }: { blogs: BlogCard[] }) => {
+import { Link } from "next-view-transitions";
+import { blogs } from "../lib/blogs";
+import Image from "next/image";
+import { motion } from "motion/react";
+const BlogsList = () => {
   return (
-    <div className="grid grid-cols-1 gap-x-6 gap-y-10 py-8 sm:grid-cols-2">
+    <div className="grid grid-cols-1 gap-10 py-4 md:grid-cols-2">
       {blogs.map((blog, index) => (
-        <MediaCard
-          key={blog.slug}
-          href={`/blog/${blog.slug}`}
-          image={blog.image}
-          title={blog.title}
-          description={blog.description}
-          meta={blog.meta}
-          index={index}
-        />
+        <motion.div
+          initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+          whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+          transition={{
+            duration: 0.3,
+            delay: index * 0.1,
+            ease: "easeInOut",
+          }}
+          key={index}
+          className="group md:h-50 md:mb-8"
+        >
+          <Link href={`/blog/${blog.slug}`}>
+            <div className="relative w-full aspect-video md:h-50 md:aspect-auto overflow-hidden rounded-xl">
+              <Image
+                alt={`${blog.title}`}
+                src={blog.image}
+                loading="eager"
+                fill
+                sizes="100"
+                className="object-cover group-hover:scale-[1.02] transition duration-200"
+              />
+            </div>
+            <h2 className="text-neutral-800 dark:text-neutral-200 font-medium mt-3 tracking-tight text-sm sm:text-base">
+              {blog.title}
+            </h2>
+            <p className="text-neutral-500 dark:text-neutral-400 text-xs sm:text-sm max-w-sm mt-1 leading-relaxed">
+              {blog.description}
+            </p>
+          </Link>
+        </motion.div>
       ))}
     </div>
   );

@@ -3,8 +3,6 @@ import Container from "../../components/Container";
 import PageHeading from "@/app/components/PageHeading";
 import Paragraph from "@/app/components/Paragraph";
 import FadeUp from "@/app/components/FadeUp";
-import { blogs, formatDate } from "@/app/lib/blogs";
-import { readingTime } from "@/app/lib/reading-time";
 import type { Metadata } from "next";
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -50,23 +48,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const AllBlogs = () => {
-  /* Dates are formatted and reading time is read off disk here, on the server:
-     lib/blogs entries carry a non-serializable `loader`, so only this plain
-     subset may cross into the client list. */
-  const cards = blogs.map((blog) => {
-    const minutes = readingTime(blog.file);
-
-    return {
-      slug: blog.slug,
-      title: blog.title,
-      description: blog.description,
-      image: blog.image,
-      meta: [formatDate(blog.date), minutes && `${minutes} min read`]
-        .filter(Boolean)
-        .join(" · "),
-    };
-  });
-
   return (
     <div className="flex-1 flex items-start justify-start gap-10 w-full">
       <Container className="px-8 pt-20 md:px-20">
@@ -76,7 +57,7 @@ const AllBlogs = () => {
             Thoughts on code, design, and building things.
           </Paragraph>
         </FadeUp>
-        <BlogsList blogs={cards} />
+        <BlogsList />
       </Container>
     </div>
   );
