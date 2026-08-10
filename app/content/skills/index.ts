@@ -79,14 +79,6 @@ export const skills: Skill[] = [
     category: "frontend",
   },
   {
-    // skillicons.dev ships no Framer/Framer Motion icon, so this renders label-only
-    // rather than showing an unrelated logo.
-    skill: "Framer Motion",
-    borderColor: "#0055FF",
-    category: "frontend",
-  },
-
-  {
     icon: "nodejs",
     skill: "Node.js",
     borderColor: "#339933",

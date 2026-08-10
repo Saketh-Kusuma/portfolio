@@ -35,7 +35,7 @@ export default function ProjectsPage() {
         <FadeUp>
           <PageHeading>Projects</PageHeading>
         </FadeUp>
-        <Projects />
+        <Projects introClassName="pt-4" />
       </Container>
     </div>
   );
