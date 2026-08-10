@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Geist } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Footer from "./navbar/Footer";
+import MobileDock from "./navbar/mobile-dock";
 import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
@@ -123,6 +124,12 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
+/* `viewportFit: "cover"` is what makes `env(safe-area-inset-*)` resolve to real
+   values — without it the mobile dock sits under the iOS home indicator. */
+export const viewport: Viewport = {
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -177,11 +184,21 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <main className="flex-1 flex flex-col w-full">{children}</main>
+            {/* Bottom padding clears the fixed mobile dock so it never covers
+                the footer or a form's submit button. */}
+            <main className="flex-1 flex flex-col w-full pb-24 sm:pb-0">
+              {children}
+            </main>
 
             <Footer />
 
-            <Toaster position="bottom-right" richColors />
+            <MobileDock />
+
+            <Toaster
+              position="bottom-right"
+              richColors
+              mobileOffset={{ bottom: "6rem" }}
+            />
           </ThemeProvider>
         </body>
       </html>

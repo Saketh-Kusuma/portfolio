@@ -1,97 +1,42 @@
 "use client";
 import { Link } from "next-view-transitions";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { useState } from "react";
 import { ModeToggle } from "@/components/theme-toggle";
-
-const navItems = [
-  { title: "About", href: "/about" },
-  { title: "Projects", href: "/projects" },
-  { title: "Experience", href: "/experience" },
-  { title: "Blog", href: "/blog" },
-  { title: "Contact", href: "/contact" },
-];
+import { navItems } from "@/app/content/nav";
 
 const NavbarHome = () => {
   const [hovered, setHovered] = useState<number | null>(null);
-  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
 
   return (
-    <>
-      <nav
-        className={`fixed top-0 left-0 right-0 mx-auto z-100 max-w-4xl w-full pt-3 px-3 flex justify-end items-center gap-2`}
-      >
-        <div className={`px-5 py-3 hidden sm:flex items-center`}>
-          {navItems.map((item, index) => (
-            <Link
-              className="text-sm relative px-3 py-1.5 text-secondary hover:text-primary transition-colors"
-              href={item.href}
-              key={index}
-              onMouseEnter={() => setHovered(index)}
-              onMouseLeave={() => setHovered(null)}
-            >
-              {hovered === index && (
-                <motion.span
-                  layoutId="hovered-span"
-                  className="h-full w-full absolute inset-0 rounded-full bg-neutral-300 dark:bg-neutral-600"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
-              <span className="relative z-10">{item.title}</span>
-            </Link>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-2">
-          <ModeToggle />
-          <button
-            id="hamburger-toggle"
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((prev) => !prev)}
-            className="sm:hidden flex justify-center items-center w-9 h-9 rounded-lg focus:outline-none"
+    <nav
+      className={`fixed top-0 left-0 right-0 mx-auto z-100 max-w-4xl w-full pt-3 px-3 flex justify-end items-center gap-2`}
+    >
+      <div className={`px-5 py-3 hidden sm:flex items-center`}>
+        {navItems.map((item, index) => (
+          <Link
+            className="text-sm relative px-3 py-1.5 text-secondary hover:text-primary transition-colors"
+            href={item.href}
+            key={index}
+            onMouseEnter={() => setHovered(index)}
+            onMouseLeave={() => setHovered(null)}
           >
-            <div className="flex flex-col items-end gap-1.5">
+            {hovered === index && (
               <motion.span
-                animate={mobileOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
-                className="block h-[2px] w-5 bg-neutral-800 dark:bg-neutral-100 origin-center rounded-full"
+                layoutId="hovered-span"
+                className="h-full w-full absolute inset-0 rounded-full bg-neutral-300 dark:bg-neutral-600"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
               />
-              <motion.span
-                animate={mobileOpen ? { rotate: -45, y: -4, width: "1.25rem" } : { rotate: 0, y: 0, width: "1rem" }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
-                className="block h-[2px] w-4 bg-neutral-800 dark:bg-neutral-100 origin-center rounded-full"
-              />
-            </div>
-          </button>
-        </div>
-      </nav>
+            )}
+            <span className="relative z-10">{item.title}</span>
+          </Link>
+        ))}
+      </div>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            id="mobile-menu"
-            key="mobile-menu"
-            initial={{ opacity: 0, y: -12, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -12, scale: 0.97 }}
-            transition={{ duration: 0.22, ease: "easeOut" }}
-            className="sm:hidden fixed top-[68px] inset-x-4 z-40 rounded-2xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-neutral-200 dark:border-neutral-700 shadow-lg overflow-hidden"
-          >
-            {navItems.map((item, index) => (
-              <Link
-                key={index}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center px-5 py-4 text-sm font-medium text-neutral-800 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors border-b border-neutral-100 dark:border-neutral-800 last:border-none"
-              >
-                {item.title}
-              </Link>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+      <div className="flex items-center gap-2">
+        <ModeToggle />
+      </div>
+    </nav>
   );
 };
 
