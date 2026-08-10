@@ -1,51 +1,39 @@
 "use client";
-import Image from "next/image";
-import { motion } from "motion/react";
-import { Link } from "next-view-transitions";
 import FadeUp from "./FadeUp";
 import Paragraph from "./Paragraph";
+import MediaCard from "./MediaCard";
 import { projects } from "../content/projects";
-const Projects = () => {
+
+type ProjectsProps = {
+  /** Home page shows a preview; the projects page shows everything. */
+  limit?: number;
+  /** Top spacing for the intro line — the projects page needs room under its heading. */
+  introClassName?: string;
+};
+
+const Projects = ({ limit, introClassName = "" }: ProjectsProps) => {
+  const shown = limit ? projects.slice(0, limit) : projects;
+
   return (
     <div className="pt-3 text-primary dark:text-neutral-200">
       <FadeUp>
-        <Paragraph className="pt-4 text-primary dark:text-neutral-200">
+        <Paragraph className={`text-primary dark:text-neutral-200 ${introClassName}`}>
           I love building web apps and products that can impact millions of
           lives
         </Paragraph>
       </FadeUp>
-      <div className="grid grid-cols-1 gap-10 py-4 md:grid-cols-2">
-        {projects.map((project, index) => (
-          <motion.div
-            initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-            whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{
-              duration: 0.3,
-              delay: index * 0.1,
-              ease: "easeInOut",
-            }}
-            key={index}
-            className="group md:h-60 md:mb-20"
-          >
-            <Link href={project.href} className="block">
-              <div className="relative w-full aspect-video md:h-50 md:aspect-auto overflow-hidden rounded-xl">
-                <Image
-                  alt={`${project.title}`}
-                  src={project.src}
-                  fill
-                  sizes="100"
-                  loading="eager"
-                  className="object-cover group-hover:scale-[1.02] transition duration-200"
-                />
-              </div>
-              <h2 className="text-neutral-500 dark:text-neutral-200 font-medium mt-3 tracking-tight text-sm sm:text-base">
-                {project.title}
-              </h2>
-              <p className="text-neutral-500 dark:text-neutral-400 text-xs sm:text-sm max-w-xs mt-1 leading-relaxed">
-                {project.description}
-              </p>
-            </Link>
-          </motion.div>
+      <div className="grid grid-cols-1 gap-x-6 gap-y-10 py-8 sm:grid-cols-2">
+        {shown.map((project, index) => (
+          <MediaCard
+            key={project.href}
+            href={project.href}
+            external
+            image={project.src}
+            title={project.title}
+            description={project.description}
+            meta={project.tags.join(" · ")}
+            index={index}
+          />
         ))}
       </div>
     </div>

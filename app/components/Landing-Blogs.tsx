@@ -1,4 +1,4 @@
-import { blogs } from "../lib/blogs";
+import { blogs, formatDate } from "../lib/blogs";
 import Link from "next/link";
 
 const LandingBlogs = () => {
@@ -15,7 +15,7 @@ const LandingBlogs = () => {
                 {blog.title}
               </h2>
               <p className="text-primary dark:text-neutral-200 text-sm md:text-sm">
-                {blog.date}
+                {formatDate(blog.date)}
               </p>
             </div>
             <p className="text-secondary dark:text-neutral-300 max-w-lg pt-2 text-sm md:text-sm">

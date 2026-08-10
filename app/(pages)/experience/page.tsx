@@ -29,7 +29,6 @@ const experiences = [
       "Shadcn UI",
       "Tailwind CSS",
       "Redux Toolkit",
-      "Framer Motion",
       "REST APIs",
       "Git",
     ],

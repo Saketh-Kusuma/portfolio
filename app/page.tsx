@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Container from "./components/Container";
-import Projects from "./components/Projects-Home";
+import Projects from "./components/Projects";
 import LandingBlogs from "./components/Landing-Blogs";
 import { Link } from "next-view-transitions";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -19,10 +19,11 @@ export default function Home() {
               <Image
                 src={"/avatar-hero1.png"}
                 alt="Saketh Kusuma"
-                loading="eager"
+                priority
+                sizes="80px"
                 width={80}
                 height={80}
-                className="rounded-full"
+                className="rounded-full ring-1 ring-border"
               />
               <div className="flex flex-col">
                 <h1 className="text-2xl text-primary dark:text-white font-medium">
@@ -67,7 +68,7 @@ export default function Home() {
             </Paragraph>
           </FadeUp>
           <FadeUp>
-            <Projects />
+            <Projects limit={3} />
             <Link
               href={"/projects"}
               className="text-xs md:text-sm flex items-center gap-1 group justify-end pb-5 text-neutral-600 dark:text-neutral-200"
