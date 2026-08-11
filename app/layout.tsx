@@ -8,6 +8,7 @@ import MobileDock from "./navbar/mobile-dock";
 import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
+import MobileDock from "./navbar/dock";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -190,13 +191,8 @@ export default function RootLayout({
 
             <Footer />
 
+            <Toaster position="bottom-right" richColors />
             <MobileDock />
-
-            <Toaster
-              position="bottom-right"
-              richColors
-              mobileOffset={{ bottom: "6rem" }}
-            />
           </ThemeProvider>
         </body>
       </html>

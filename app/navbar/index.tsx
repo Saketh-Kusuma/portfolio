@@ -108,6 +108,8 @@ const Navbar = () => {
           <ModeToggle />
         </div>
       </motion.nav>
+
+      {/* Mobile dropdown menu */}
     </Container>
   );
 };
