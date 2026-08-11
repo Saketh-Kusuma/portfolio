@@ -10,11 +10,11 @@ const LandingBlogs = () => {
       <div className="flex flex-col gap-4">
         {blogs.slice(0, 3).map((blog, index) => (
           <Link key={index} href={`/blog/${blog.slug}`}>
-            <div className="flex items-center justify-between">
+            <div className="flex items-baseline justify-between gap-4">
               <h2 className="text-primary dark:text-neutral-200 text-base font-bold tracking-tight">
                 {blog.title}
               </h2>
-              <p className="text-primary dark:text-neutral-200 text-sm md:text-sm">
+              <p className="text-primary dark:text-neutral-200 shrink-0 text-sm whitespace-nowrap md:text-sm">
                 {formatDate(blog.date)}
               </p>
             </div>
