@@ -186,7 +186,7 @@ export default function RootLayout({
           >
             {/* Bottom padding clears the fixed mobile dock so it never covers
                 the footer or a form's submit button. */}
-            <main className="flex-1 flex flex-col w-full pb-24 sm:pb-0">
+            <main className="flex-1 flex flex-col w-full sm:pb-0">
               {children}
             </main>
 
