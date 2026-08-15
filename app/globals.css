@@ -157,3 +157,27 @@
     color-scheme: dark;
   }
 }
+
+/* Theme-toggle view transition — see components/ui/animated-theme-toggler.tsx.
+   Every rule here is scoped to the toggler's own `data-magicui-theme-vt` flag:
+   unscoped (as the shadcn registry ships them) they would also strip the
+   crossfade from `next-view-transitions` page navigations, which animate the
+   same root pseudo-elements. */
+html[data-magicui-theme-vt="active"]::view-transition-old(root),
+html[data-magicui-theme-vt="active"]::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* The incoming theme is revealed by a JS clip-path animation on
+   ::view-transition-new. Pinning the collapsed shape in CSS keeps it hidden
+   between the snapshot and the frame that animation actually starts on. */
+html[data-magicui-theme-vt="active"]::view-transition-new(root) {
+  clip-path: var(--magicui-theme-vt-clip-from, circle(0%));
+}
+
+/* Keep the transition group alive for as long as that clip-path animation runs
+   — the UA default is 0.25s, shorter than the duration we pass the component. */
+html[data-magicui-theme-vt="active"]::view-transition-group(root) {
+  animation-duration: var(--magicui-theme-toggle-vt-duration, 400ms);
+}
