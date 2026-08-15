@@ -148,7 +148,17 @@ export default function RootLayout({
           geist.variable,
         )}
       >
-        <body className="relative min-h-full flex flex-col bg-neutral-100 dark:bg-neutral-800">
+        {/* The bottom padding reserves room for the fixed mobile dock. It lives on
+            <body> rather than <main> so the space is added *after* the footer —
+            padding on <main> only shifts its own content and still leaves the
+            footer (and, on a page too short to scroll, a form's submit button)
+            sitting underneath the dock. */}
+        <body
+          className={cn(
+            "relative min-h-full flex flex-col bg-neutral-100 dark:bg-neutral-800",
+            "pb-[calc(4.75rem+env(safe-area-inset-bottom))] sm:pb-0",
+          )}
+        >
           <Script
             id="schema"
             type="application/ld+json"
@@ -184,11 +194,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {/* Bottom padding clears the fixed mobile dock so it never covers
-                the footer or a form's submit button. */}
-            <main className="flex-1 flex flex-col w-full sm:pb-0">
-              {children}
-            </main>
+            <main className="flex-1 flex flex-col w-full">{children}</main>
 
             <Footer />
 
