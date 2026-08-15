@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
    the toggler renders its icons internally, so they can't carry a size class. */
 const triggerClassName = cn(
   buttonVariants({ variant: "ghost", size: "icon" }),
-  "h-6 w-6 cursor-pointer rounded-full [&_svg]:size-4! text-muted-foreground",
+  "h-6 w-6 cursor-pointer rounded-full [&_svg]:size-5! md:[&_svg]:size-4! text-muted-foreground",
 );
 
 export function ModeToggle() {
