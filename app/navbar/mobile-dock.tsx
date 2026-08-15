@@ -2,19 +2,11 @@
 
 import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValueEvent,
-  useReducedMotion,
-  useScroll,
-} from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { dockItems } from "@/app/content/nav";
 import { cn } from "@/lib/utils";
 
-/** Below this scroll depth the dock always stays put — nothing to gain by hiding. */
-const REVEAL_ABOVE = 80;
 /** How long a tapped label lingers before fading. */
 const TIP_MS = 1200;
 
@@ -23,24 +15,9 @@ const isActiveHref = (pathname: string, href: string) =>
 
 const MobileDock = () => {
   const pathname = usePathname();
-  const { scrollY } = useScroll();
-  const reduceMotion = useReducedMotion();
 
-  const [hidden, setHidden] = useState(false);
   const [tipFor, setTipFor] = useState<string | null>(null);
   const tipTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    // getPrevious() is undefined on the very first event.
-    const previous = scrollY.getPrevious() ?? 0;
-
-    if (latest < REVEAL_ABOVE) {
-      setHidden(false);
-      return;
-    }
-    if (latest > previous) setHidden(true);
-    else if (latest < previous) setHidden(false);
-  });
 
   useEffect(() => {
     return () => {
@@ -54,22 +31,13 @@ const MobileDock = () => {
     tipTimer.current = setTimeout(() => setTipFor(null), TIP_MS);
   };
 
-  // Honouring reduced-motion means staying pinned, not sliding out of reach.
-  const isHidden = reduceMotion ? false : hidden;
-
+  /* The dock stays pinned at all times — it never hides on scroll. <body> reserves
+     matching bottom padding (see app/layout.tsx), and a dock that slid away would
+     expose that reserved strip as dead space at the end of the page. */
   return (
-    <motion.div
-      animate={{ y: isHidden ? "150%" : "0%" }}
-      transition={{ duration: 0.25, ease: "easeInOut" }}
-      className={cn(
-        "sm:hidden fixed inset-x-0 bottom-0 z-100 px-3 pb-[env(safe-area-inset-bottom)]",
-        // A dock that has slid away must not keep swallowing taps.
-        isHidden && "pointer-events-none",
-      )}
-    >
+    <div className="sm:hidden fixed inset-x-0 bottom-0 z-100 px-3 pb-[env(safe-area-inset-bottom)]">
       <nav
         aria-label="Primary"
-        aria-hidden={isHidden}
         className="mb-3 flex items-center justify-between gap-0.5 rounded-3xl border border-border bg-card/80 p-1.5 shadow-[var(--shadow-aceternity)] backdrop-blur-md"
       >
         {dockItems.map((item) => {
@@ -120,7 +88,7 @@ const MobileDock = () => {
           );
         })}
       </nav>
-    </motion.div>
+    </div>
   );
 };
 
