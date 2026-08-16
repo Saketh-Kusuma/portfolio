@@ -70,10 +70,13 @@ const Navbar = () => {
         }}
         className={`${!isMobile && shadow ? "rounded-4xl bg-neutral-200 dark:bg-neutral-900" : ""} absolute sm:fixed inset-x-0 top-0 z-100 max-w-4xl min-w-fit mx-auto flex items-center justify-between gap-3 px-3 py-3 w-full mt-2`}
       >
+        {/* `animate`, not `whileInView`: this navbar is `absolute` below `sm`, so it
+            scrolls out of view and back in — whileInView replayed the entrance on
+            every scroll back to the top. It's above the fold on load anyway. */}
         <motion.div
           className="shrink-0"
           initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.3,
             delay: 0.2,
