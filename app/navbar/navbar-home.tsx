@@ -9,8 +9,10 @@ const NavbarHome = () => {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
+    // `absolute` below `sm` so this scrolls away with the page — the mobile dock
+    // is the only docked bar there. See app/navbar/index.tsx for the same trade.
     <nav
-      className={`fixed top-0 left-0 right-0 mx-auto z-100 max-w-4xl w-full pt-3 px-3 flex justify-end items-center gap-2`}
+      className={`absolute sm:fixed top-0 left-0 right-0 mx-auto z-100 max-w-4xl w-full pt-3 px-3 flex justify-end items-center gap-2`}
     >
       <div className={`px-5 py-3 hidden sm:flex items-center`}>
         {navItems.map((item, index) => (
