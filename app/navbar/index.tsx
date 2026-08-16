@@ -30,9 +30,14 @@ const Navbar = () => {
     "96%",
     "88%",
   ]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const update = () => setWidthRange(getWidthRange(window.innerWidth));
+    const update = () => {
+      const vw = window.innerWidth;
+      setIsMobile(vw < 640);
+      setWidthRange(getWidthRange(vw));
+    };
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
@@ -49,17 +54,21 @@ const Navbar = () => {
 
   return (
     <Container>
+      {/* Below `sm` the navbar is `absolute`, not pinned — the mobile dock is the
+          only docked bar there, so this one scrolls away with the page. The
+          scroll-driven width/shadow/y are gated off to match: a pill that grew a
+          shadow and then immediately slid off-screen just reads as a glitch. */}
       <motion.nav
         style={{
-          boxShadow: shadow ? "var(--shadow-aceternity)" : "none",
-          width,
-          y,
+          boxShadow: !isMobile && shadow ? "var(--shadow-aceternity)" : "none",
+          width: isMobile ? "100%" : width,
+          y: isMobile ? 0 : y,
         }}
         transition={{
           duration: 0.3,
           ease: "linear",
         }}
-        className={`${shadow ? "rounded-4xl bg-neutral-200 dark:bg-neutral-900" : ""} fixed inset-x-0 top-0 z-100 max-w-4xl min-w-fit mx-auto flex items-center justify-between gap-3 px-3 py-3 w-full mt-2`}
+        className={`${!isMobile && shadow ? "rounded-4xl bg-neutral-200 dark:bg-neutral-900" : ""} absolute sm:fixed inset-x-0 top-0 z-100 max-w-4xl min-w-fit mx-auto flex items-center justify-between gap-3 px-3 py-3 w-full mt-2`}
       >
         <motion.div
           className="shrink-0"

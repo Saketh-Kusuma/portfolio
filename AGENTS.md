@@ -14,6 +14,8 @@ Both navbars (`app/navbar/index.tsx`, `app/navbar/navbar-home.tsx`) are `z-100`,
 ## Navbar invariants
 `app/navbar/index.tsx` animates its width on scroll (motion `useTransform`). Keep `min-w-fit` on `<motion.nav>` and `shrink-0` on the avatar wrapper + `<Image>` and on the right-side toggle group. Dropping any of these brings back the pill-overflow / squished-avatar bugs.
 
+Both top navbars are `absolute sm:fixed` — below `sm` they scroll away, because the mobile dock (`app/navbar/mobile-dock.tsx`) is the only bar that should stay docked on a phone. Two pinned bars was the bug. `absolute` resolves against `<body>` (the only `relative` ancestor), so pages keep their existing `pt-20` / `pt-15` top clearance — don't "fix" this by putting the navbar back in flow. The scroll-driven width/shadow/`y` in `index.tsx` are gated behind an `isMobile` flag for the same reason: a shrink-pill that grows a shadow and then slides off-screen reads as a glitch.
+
 ## Tech-stack icons
 Skills live in `app/content/skills/index.ts`; logos are fetched from skillicons.dev by the `icon` slug. Only add a skill whose icon actually exists on skillicons.dev — otherwise it renders a wrong/blank logo (Shadcn UI was removed for exactly this reason).
 
