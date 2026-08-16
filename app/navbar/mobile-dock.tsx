@@ -38,7 +38,7 @@ const MobileDock = () => {
     <div className="sm:hidden fixed inset-x-0 bottom-0 z-100 px-3 pb-[env(safe-area-inset-bottom)]">
       <nav
         aria-label="Primary"
-        className="mb-3 flex items-center justify-between gap-0.5 rounded-3xl border border-border bg-card/80 p-1.5 shadow-[var(--shadow-aceternity)] backdrop-blur-md"
+        className="mb-3 flex items-center justify-between gap-0.5 rounded-full border border-border bg-card/80 p-1.5 shadow-[var(--shadow-aceternity)] backdrop-blur-md"
       >
         {dockItems.map((item) => {
           const active = isActiveHref(pathname, item.href);
@@ -50,12 +50,12 @@ const MobileDock = () => {
               href={item.href}
               aria-current={active ? "page" : undefined}
               onClick={() => showTip(item.href)}
-              className="relative flex min-h-11 flex-1 items-center justify-center rounded-2xl"
+              className="relative flex min-h-11 flex-1 items-center justify-center rounded-full"
             >
               {active && (
                 <motion.span
                   layoutId="dock-active"
-                  className="absolute inset-0 rounded-2xl bg-accent"
+                  className="absolute inset-0 rounded-full bg-accent"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
