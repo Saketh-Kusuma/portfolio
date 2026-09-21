@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import avatarHero from "../avatar-hero1.webp";
 import Container from "../components/Container";
 import { Link } from "next-view-transitions";
 import {
@@ -85,11 +86,12 @@ const Navbar = () => {
         >
           <Link href={"/"}>
             <Image
-              src="/avatar-hero1.png"
-              width="100"
-              height="100"
+              src={avatarHero}
+              width={100}
+              height={100}
               alt="avatar"
-              priority
+              preload
+              placeholder="blur"
               sizes="40px"
               className="h-10 w-10 shrink-0 rounded-full object-cover"
             />
