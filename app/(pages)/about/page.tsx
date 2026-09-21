@@ -1,8 +1,5 @@
-import { Badge } from "@/components/ui/badge";
 import Container from "../../components/Container";
-import { skills } from "../../content/skills";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 import Timeline from "@/app/components/Timeline";
 import { timeline } from "@/app/content/timeline";
 import PageHeading from "@/app/components/PageHeading";
@@ -34,7 +31,6 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "About | Saketh Kusuma",
       description:
         "Learn more about Saketh Kusuma, a Full Stack Developer specializing in React, Next.js, TypeScript, and Node.js.",
-      url: "https://yourdomain.com/about",
       images: [
         {
           url: "/og-image.png",
@@ -90,7 +86,7 @@ export default function About() {
         <FadeUp delay={0.15}>
           <div>
             <p className="text-primary dark:text-neutral-200 text-sm md:text-sm max-w-lg py-6">
-              Here&apos;s a timeline of my achivements:
+              Here&apos;s a timeline of my achievements:
             </p>
             <Timeline data={timeline} />
           </div>
