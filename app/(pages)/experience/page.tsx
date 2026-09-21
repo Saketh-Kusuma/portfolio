@@ -70,7 +70,7 @@ export default function ExperiencePage() {
               <div className="border rounded-lg p-4 sm:p-6 md:p-8 hover:border-foreground/20 transition-colors duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-4 mb-4 sm:mb-6">
                   <div className="min-w-0">
-                    <h3 className="text-base sm:text-lg font-semibold text-primary dark:text-neutral-200 truncate">
+                    <h3 className="text-base sm:text-lg font-semibold text-primary dark:text-neutral-200">
                       {exp.company}
                     </h3>
                     <p className="text-xs sm:text-sm text-primary dark:text-neutral-200 opacity-60 mt-0.5">
@@ -112,7 +112,7 @@ export default function ExperiencePage() {
                   {exp.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="text-[10px] sm:text-xs px-2 sm:px-3 py-1 sm:py-1.5 border border-border text-primary dark:text-neutral-200 hover:border-foreground/30 transition-colors"
+                      className="text-[10px] sm:text-xs px-2 sm:px-3 py-1 sm:py-1.5 rounded border border-border text-primary dark:text-neutral-200 hover:border-foreground/30 transition-colors"
                     >
                       {tech}
                     </span>
@@ -124,10 +124,10 @@ export default function ExperiencePage() {
         </div>
 
         <FadeUp delay={0.1}>
-          <PageHeading className="mt-8">Education</PageHeading>
+          <PageHeading as="h2" className="mt-8">Education</PageHeading>
         </FadeUp>
 
-        <div className="space-y-1 sm:space-y-2 mb-3">
+        <div className="space-y-1 sm:space-y-2 mt-4 mb-3">
           {education.map((edu, index) => (
             <FadeUp key={index} delay={0.1 + index * 0.05}>
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4 py-2 sm:py-3 border-b border-border/50 last:border-0">

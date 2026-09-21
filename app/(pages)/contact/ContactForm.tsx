@@ -114,7 +114,7 @@ export default function ContactForm() {
             name="message"
             rows={5}
             required
-            className="px-4 py-2 bg-transparent border border-input rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-ring text-sm resize-none text-primary"
+            className="px-4 py-2 bg-transparent border border-input rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-ring text-sm resize-none text-primary dark:text-neutral-200"
             placeholder="Write your message here..."
           />
         </div>

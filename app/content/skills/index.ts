@@ -69,7 +69,7 @@ export const skills: Skill[] = [
   {
     icon: "nextjs",
     skill: "Next.js",
-    borderColor: "#FFFFFF",
+    borderColor: "#888888",
     category: "frontend",
   },
   {
@@ -87,7 +87,7 @@ export const skills: Skill[] = [
   {
     icon: "express",
     skill: "Express.js",
-    borderColor: "#FFFFFF",
+    borderColor: "#888888",
     category: "backend",
   },
   {
@@ -130,7 +130,7 @@ export const skills: Skill[] = [
   {
     icon: "github",
     skill: "GitHub",
-    borderColor: "#FFFFFF",
+    borderColor: "#888888",
     category: "tools",
   },
   {

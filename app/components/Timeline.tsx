@@ -34,7 +34,7 @@ const TimelineItem = ({
       {/* Animated dot */}
       <motion.div
         style={{ scale: dotScale, opacity: dotOpacity }}
-        className="absolute w-3 h-3 bg-secondary rounded-full -left-[2.3rem] top-1.5 border-2 border-background  ring-secondary"
+        className="absolute w-3 h-3 bg-secondary rounded-full -left-[2.3rem] top-1.5 border-2 border-background ring-secondary"
       />
 
       {/* Content */}
@@ -45,7 +45,7 @@ const TimelineItem = ({
         <h3 className="text-base font-semibold text-heading mb-1">
           {item.title}
         </h3>
-        <p className="text-sm font-normal leading-relaxed">
+        <p className="text-sm font-normal leading-relaxed text-secondary dark:text-neutral-400">
           {item.description}
         </p>
       </motion.div>

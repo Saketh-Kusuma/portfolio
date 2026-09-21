@@ -26,7 +26,6 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "Blogs | Saketh Kusuma",
       description:
         "A collection of technical blogs by Saketh Kusuma on software engineering and web development.",
-      url: "https://yourdomain.com/blog",
       images: [
         {
           url: "/og-image.png",

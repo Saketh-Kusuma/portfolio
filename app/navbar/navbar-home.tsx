@@ -25,7 +25,7 @@ const NavbarHome = () => {
           >
             {hovered === index && (
               <motion.span
-                layoutId="hovered-span"
+                layoutId="hovered-span-home"
                 className="h-full w-full absolute inset-0 rounded-full bg-neutral-300 dark:bg-neutral-600"
                 transition={{ type: "spring", stiffness: 380, damping: 30 }}
               />
