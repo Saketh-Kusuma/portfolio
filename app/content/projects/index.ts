@@ -10,7 +10,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Wonder World Adventure Hub",
-    src: "/projects/wonder-world-thumbnail.png",
+    src: "/projects/wonder-world-thumbnail.webp",
     description:
       "A  full-stack React and Node.js web application for a theme park with a responsive interface and real-time visitor query handling.",
     href: "https://github.com/Saketh-Kusuma/wonderworld-chat-service",
@@ -18,7 +18,7 @@ export const projects: Project[] = [
   },
   {
     title: "Link Devs",
-    src: "/projects/linkdevs-thumbnail-dark.png",
+    src: "/projects/linkdevs-thumbnail-dark.webp",
     description:
       "A developer matchmaking platform using React and Node.js/Express.js with JWT-secured REST APIs for registration, authentication.",
     href: "https://linkdevs.vercel.app/signup",

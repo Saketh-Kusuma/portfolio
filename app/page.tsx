@@ -1,4 +1,5 @@
 import Image from "next/image";
+import avatarHero from "./avatar-hero1.webp";
 import Container from "./components/Container";
 import Projects from "./components/Projects";
 import LandingBlogs from "./components/Landing-Blogs";
@@ -17,13 +18,14 @@ export default function Home() {
           <FadeUp>
             <div className="flex items-center gap-4 pb-2">
               <Image
-                src={"/avatar-hero1.png"}
+                src={avatarHero}
                 alt="Saketh Kusuma"
-                priority
+                preload
+                placeholder="blur"
                 sizes="80px"
                 width={80}
                 height={80}
-                className="rounded-full ring-1 ring-border"
+                className="rounded-full"
               />
               <div className="flex flex-col">
                 <h1 className="text-2xl text-primary dark:text-white font-medium">
