@@ -25,7 +25,7 @@ export default function Home() {
                 sizes="80px"
                 width={80}
                 height={80}
-                className="rounded-full ring-1 ring-border"
+                className="rounded-full"
               />
               <div className="flex flex-col">
                 <h1 className="text-2xl text-primary dark:text-white font-medium">
