@@ -70,7 +70,7 @@ export default function Home() {
             </Paragraph>
           </FadeUp>
           <FadeUp>
-            <Projects limit={3} />
+            <Projects limit={2} />
             <Link
               href={"/projects"}
               className="text-xs md:text-sm flex items-center gap-1 group justify-end pb-5 text-neutral-600 dark:text-neutral-200"
