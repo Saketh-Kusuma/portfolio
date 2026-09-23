@@ -24,4 +24,18 @@ export const projects: Project[] = [
     href: "https://linkdevs.vercel.app/signup",
     tags: ["React", "Node.js", "Express.js", "JWT"],
   },
+  {
+    title: "Interview Prep",
+    src: "/projects/interviewprep-thumbnail.png",
+    description:
+      "A full-stack interview preparation tracker that helps users organize concepts, track topic progress, set learning statuses, and maintain quick cheat-sheet notes.",
+    href: "https://interviewprepjava.vercel.app/",
+    tags: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "Firebase(Authentication)",
+      "PlSQL",
+    ],
+  },
 ];
