@@ -10,6 +10,7 @@ type MediaCardProps = {
   external?: boolean;
   image: string;
   title: string;
+  headingLevel?: "h2" | "h3";
   description: string;
   /** "Jun 24, 2026 · 3 min read" or "React · Node.js". Rendered between title and description. */
   meta?: string;
@@ -28,6 +29,7 @@ const MediaCard = ({
   external = false,
   image,
   title,
+  headingLevel: Heading = "h2",
   description,
   meta,
   index = 0,
@@ -52,12 +54,12 @@ const MediaCard = ({
       <div className="pt-3">
         {/* Keep the title on --primary in both themes: no dark:text-neutral-100
             override, since --primary already resolves to neutral-100 in dark. */}
-        <h2 className="flex items-center gap-1 text-primary font-medium tracking-tight text-sm sm:text-base">
+        <Heading className="flex items-center gap-1 text-primary font-medium tracking-tight text-sm sm:text-base font-serif">
           {title}
           {external && (
             <ArrowUpRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-60 group-hover:translate-x-0" />
           )}
-        </h2>
+        </Heading>
         {meta && (
           <p className="text-secondary text-xs mt-1">{meta}</p>
         )}

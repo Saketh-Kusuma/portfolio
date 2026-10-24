@@ -8,13 +8,19 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import NavbarHome from "./navbar/navbar-home";
 import Paragraph from "./components/Paragraph";
 import FadeUp from "./components/FadeUp";
+import { Suspense } from "react";
+import GitHubActivity, {
+  GitHubActivitySkeleton,
+} from "./components/GitHubActivity";
+import HomeSection from "./components/HomeSection";
+import ScrolledTooFar from "./components/ScrolledTooFar";
 
 export default function Home() {
   return (
     <div>
       <NavbarHome />
       <div className="flex-1 w-full flex flex-col">
-        <Container className="flex-1 px-8 pt-15 md:pt-20 md:px-20">
+        <Container className="flex-1 space-y-8 px-8 pt-15 pb-8 md:space-y-10 md:pt-20 md:pb-10 md:px-20">
           <FadeUp>
             <div className="flex items-center gap-4 pb-2">
               <Image
@@ -28,7 +34,7 @@ export default function Home() {
                 className="rounded-full"
               />
               <div className="flex flex-col">
-                <h1 className="text-2xl text-primary dark:text-white font-medium">
+                <h1 className="text-2xl text-primary dark:text-white font-medium font-serif">
                   Saketh Kusuma
                 </h1>
                 {/* <h2 className="text-secondary text-sm">Software engineer</h2> */}
@@ -70,27 +76,45 @@ export default function Home() {
             </Paragraph>
           </FadeUp>
           <FadeUp>
-            <Projects limit={2} />
-            <Link
-              href={"/projects"}
-              className="text-xs md:text-sm flex items-center gap-1 group justify-end pb-5 text-neutral-600 dark:text-neutral-200"
+            <HomeSection
+              id="projects-heading"
+              title="Projects"
+              action={
+                <Link
+                  href="/projects"
+                  className="flex min-h-8 items-center gap-1.5 rounded-sm text-xs text-secondary transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:text-sm"
+                >
+                  View all projects
+                  <ArrowRight aria-hidden="true" size={13} strokeWidth={2} />
+                </Link>
+              }
             >
-              <span>view all projects</span>
-              <ArrowRight size={13} strokeWidth={2} />
-            </Link>
+              <Projects limit={2} />
+            </HomeSection>
           </FadeUp>
           <FadeUp delay={0.1}>
-            <div>
+            <HomeSection
+              id="writings-heading"
+              title="Writings"
+              action={
+                <Link
+                  href="/blog"
+                  className="flex min-h-8 items-center gap-1.5 rounded-sm text-xs text-secondary transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:text-sm"
+                >
+                  Browse all blogs
+                  <ArrowRight aria-hidden="true" size={13} strokeWidth={2} />
+                </Link>
+              }
+            >
               <LandingBlogs />
-              <Link
-                href={"/blog"}
-                className="text-xs md:text-sm flex items-center gap-1 group justify-end pt-4 md:pt-1 pb-4 text-neutral-600 dark:text-neutral-200"
-              >
-                <span>browse all blogs</span>
-                <ArrowRight size={13} strokeWidth={2} />
-              </Link>
-            </div>
+            </HomeSection>
           </FadeUp>
+          <FadeUp delay={0.1}>
+            <Suspense fallback={<GitHubActivitySkeleton />}>
+              <GitHubActivity />
+            </Suspense>
+          </FadeUp>
+          <ScrolledTooFar />
         </Container>
       </div>
     </div>
