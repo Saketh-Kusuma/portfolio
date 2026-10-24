@@ -35,10 +35,10 @@ const MobileDock = () => {
      matching bottom padding (see app/layout.tsx), and a dock that slid away would
      expose that reserved strip as dead space at the end of the page. */
   return (
-    <div className="sm:hidden fixed inset-x-0 bottom-0 z-100 px-3 pb-[env(safe-area-inset-bottom)]">
+    <div className="sm:hidden fixed inset-x-0 bottom-0 z-100 pb-[env(safe-area-inset-bottom)]">
       <nav
         aria-label="Primary"
-        className="mb-3 flex items-center justify-between gap-0.5 rounded-full border border-border bg-card/80 p-1.5 shadow-[var(--shadow-aceternity)] backdrop-blur-md"
+        className="mx-auto mb-3 flex w-4/5 items-center justify-between gap-0 min-[360px]:gap-0.5 rounded-full border border-border bg-card/80 p-1.5 shadow-[var(--shadow-aceternity)] backdrop-blur-md"
       >
         {dockItems.map((item) => {
           const active = isActiveHref(pathname, item.href);
@@ -50,7 +50,7 @@ const MobileDock = () => {
               href={item.href}
               aria-current={active ? "page" : undefined}
               onClick={() => showTip(item.href)}
-              className="relative flex min-h-11 flex-1 items-center justify-center rounded-full"
+              className="relative flex min-h-11 min-w-0 flex-1 items-center justify-center rounded-full"
             >
               {active && (
                 <motion.span
@@ -62,7 +62,7 @@ const MobileDock = () => {
 
               <Icon
                 className={cn(
-                  "relative z-10 h-5 w-5 transition-colors",
+                  "relative z-10 h-5 w-5 shrink-0 transition-colors",
                   active ? "text-primary" : "text-secondary",
                 )}
                 strokeWidth={active ? 2.25 : 1.75}
