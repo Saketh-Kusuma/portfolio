@@ -21,11 +21,17 @@ const useMounted = () =>
     () => false,
   );
 
-const SkillChip = ({ skill, iconTheme }: { skill: Skill; iconTheme: string }) => (
+const SkillChip = ({
+  skill,
+  iconTheme,
+}: {
+  skill: Skill;
+  iconTheme: string;
+}) => (
   <Badge
     variant="outline"
     style={{ "--brand-border": skill.borderColor } as React.CSSProperties}
-    className="h-8 gap-1.5 px-2.5 border-border bg-card/40 text-xs text-secondary dark:text-neutral-200 transition-colors duration-200 hover:border-[var(--brand-border)]"
+    className="h-8 gap-1.5 px-2.5 border-border bg-card/40 text-xs text-secondary dark:text-neutral-200 transition-colors duration-200 hover:border-[var(--brand-border)] rounded-lg"
   >
     {skill.icon && (
       <Image
@@ -67,7 +73,11 @@ const TechStackList = () => {
             </p>
             <div className="flex flex-wrap gap-2">
               {group.items.map((skill) => (
-                <SkillChip key={skill.skill} skill={skill} iconTheme={iconTheme} />
+                <SkillChip
+                  key={skill.skill}
+                  skill={skill}
+                  iconTheme={iconTheme}
+                />
               ))}
             </div>
           </div>

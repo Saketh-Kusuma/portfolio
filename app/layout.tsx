@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Geist } from "next/font/google";
+import { Inter, Geist, Playfair_Display } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -17,6 +17,13 @@ const geist = Geist({
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
@@ -147,6 +154,7 @@ export default function RootLayout({
           inter.className,
           "font-sans",
           geist.variable,
+          playfairDisplay.variable,
         )}
       >
         {/* The bottom padding reserves room for the fixed mobile dock. It lives on

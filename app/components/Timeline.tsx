@@ -42,7 +42,7 @@ const TimelineItem = ({
         <time className="text-xs font-medium text-secondary dark:text-neutral-200 tracking-wide uppercase mb-1 block">
           {item.date}
         </time>
-        <h3 className="text-base font-semibold text-heading mb-1">
+        <h3 className="text-base font-semibold text-heading mb-1 font-serif">
           {item.title}
         </h3>
         <p className="text-sm font-normal leading-relaxed text-secondary dark:text-neutral-400">

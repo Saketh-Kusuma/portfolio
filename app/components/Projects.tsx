@@ -15,14 +15,14 @@ const Projects = ({ limit, introClassName = "" }: ProjectsProps) => {
   const shown = limit ? projects.slice(0, limit) : projects;
 
   return (
-    <div className="pt-3 text-primary dark:text-neutral-200">
+    <div className={limit ? "text-primary" : "pt-3 text-primary dark:text-neutral-200"}>
       <FadeUp>
         <Paragraph className={`text-primary dark:text-neutral-200 ${introClassName}`}>
           I love building web apps and products that can impact millions of
           lives
         </Paragraph>
       </FadeUp>
-      <div className="grid grid-cols-1 gap-x-6 gap-y-10 py-8 sm:grid-cols-2">
+      <div className={`grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 ${limit ? "pt-6" : "py-8"}`}>
         {shown.map((project, index) => (
           <MediaCard
             key={project.href}
@@ -30,6 +30,7 @@ const Projects = ({ limit, introClassName = "" }: ProjectsProps) => {
             external
             image={project.src}
             title={project.title}
+            headingLevel={limit ? "h3" : "h2"}
             description={project.description}
             meta={project.tags.join(" · ")}
             index={index}

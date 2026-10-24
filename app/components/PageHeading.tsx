@@ -13,7 +13,7 @@ const PageHeading = ({ children, className, as: Tag = "h1" }: PageHeadingProps) 
   return (
     <Tag
       className={cn(
-        "text-2xl md:text-4xl font-bold tracking-tight text-primary dark:text-neutral-200",
+        "text-2xl md:text-4xl font-bold tracking-tight text-primary dark:text-neutral-200 font-serif",
         className,
       )}
     >
