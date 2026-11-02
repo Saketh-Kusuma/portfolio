@@ -9,7 +9,7 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ModeToggle } from "@/components/theme-toggle";
 import { navItems } from "@/app/content/nav";
@@ -26,9 +26,8 @@ const Navbar = () => {
   const [hovered, setHovered] = useState<number | null>(null);
   const pathname = usePathname();
   const { scrollY } = useScroll();
-  const [shadow, setShadow] = useState<boolean>(false);
+  const [shadow, setShadow] = useState(false);
   const y = useTransform(scrollY, [0, 100], [0, 10]);
-
   const [[widthStart, widthEnd], setWidthRange] = useState<[string, string]>([
     "96%",
     "88%",
@@ -48,11 +47,7 @@ const Navbar = () => {
 
   const width = useTransform(scrollY, [0, 100], [widthStart, widthEnd]);
   useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 10) {
-      setShadow(true);
-    } else {
-      setShadow(false);
-    }
+    setShadow(latest > 10);
   });
 
   return (
@@ -67,11 +62,8 @@ const Navbar = () => {
           width: isMobile ? "100%" : width,
           y: isMobile ? 0 : y,
         }}
-        transition={{
-          duration: 0.3,
-          ease: "linear",
-        }}
-        className={`${!isMobile && shadow ? "rounded-4xl bg-neutral-200 dark:bg-neutral-900" : ""} absolute sm:fixed inset-x-0 top-0 z-100 max-w-4xl min-w-fit mx-auto flex items-center justify-between gap-3 px-3 py-3 w-full mt-2`}
+        transition={{ duration: 0.3, ease: "linear" }}
+        className={`${!isMobile && shadow ? "rounded-4xl bg-neutral-200 dark:bg-neutral-900" : ""} absolute sm:fixed inset-x-0 top-0 z-100 mx-auto mt-2 flex w-full max-w-4xl min-w-fit items-center justify-between gap-3 px-3 py-2`}
       >
         {/* `animate`, not `whileInView`: this navbar is `absolute` below `sm`, so it
             scrolls out of view and back in — whileInView replayed the entrance on
@@ -103,23 +95,23 @@ const Navbar = () => {
         <div className="hidden sm:flex items-center">
           {navItems.map((item, index) => {
             const isActive = pathname === item.href;
-            const showPill = hovered === index || (hovered === null && isActive);
+            const showLine = hovered === index || (hovered === null && isActive);
             return (
               <Link
-                className={`text-sm relative px-3 py-1.5 transition-colors ${showPill ? "text-primary" : "text-secondary hover:text-primary"}`}
+                className={`relative px-3 py-1.5 text-sm transition-colors ${showLine ? "text-primary" : "text-secondary hover:text-primary"}`}
                 href={item.href}
                 key={index}
                 onMouseEnter={() => setHovered(index)}
                 onMouseLeave={() => setHovered(null)}
               >
-                {showPill && (
+                {showLine && (
                   <motion.span
-                    layoutId="hovered-span"
-                    className="h-full w-full absolute inset-0 rounded-full bg-neutral-300 dark:bg-neutral-600"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    layoutId="nav-active-line"
+                    className="pointer-events-none absolute inset-x-3 bottom-0 h-px bg-black dark:bg-white"
+                    transition={{ type: "spring", stiffness: 420, damping: 34 }}
                   />
                 )}
-                <span className="relative z-10">{item.title}</span>
+                <span>{item.title}</span>
               </Link>
             );
           })}

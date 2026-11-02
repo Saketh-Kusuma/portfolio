@@ -14,6 +14,7 @@ import GitHubActivity, {
 } from "./components/GitHubActivity";
 import HomeSection from "./components/HomeSection";
 import ScrolledTooFar from "./components/ScrolledTooFar";
+import Age from "./components/Age";
 
 export default function Home() {
   return (
@@ -42,7 +43,7 @@ export default function Home() {
                   href="/contact"
                   className="text-secondary dark:text-neutral-400 text-sm"
                 >
-                  @kusumasaketh92
+                  <Age/> Telangana, India
                 </Link>
               </div>
             </div>
