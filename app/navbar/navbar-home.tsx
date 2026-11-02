@@ -17,7 +17,7 @@ const NavbarHome = () => {
       <div className={`px-5 py-3 hidden sm:flex items-center`}>
         {navItems.map((item, index) => (
           <Link
-            className="text-sm relative px-3 py-1.5 text-secondary hover:text-primary transition-colors"
+            className="relative px-3 py-1.5 text-sm text-secondary transition-colors hover:text-primary"
             href={item.href}
             key={index}
             onMouseEnter={() => setHovered(index)}
@@ -25,12 +25,12 @@ const NavbarHome = () => {
           >
             {hovered === index && (
               <motion.span
-                layoutId="hovered-span-home"
-                className="h-full w-full absolute inset-0 rounded-full bg-neutral-300 dark:bg-neutral-600"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                layoutId="nav-home-line"
+                className="pointer-events-none absolute inset-x-3 bottom-0 h-px bg-black dark:bg-white"
+                transition={{ type: "spring", stiffness: 420, damping: 34 }}
               />
             )}
-            <span className="relative z-10">{item.title}</span>
+            <span>{item.title}</span>
           </Link>
         ))}
       </div>
