@@ -158,10 +158,6 @@
     color: var(--color-foreground);
   }
 
-  ::selection {
-    background-color: color-mix(in oklch, var(--color-brand) 28%, transparent);
-  }
-
   /* Keep native UI (scrollbars, form controls) theme-aware. */
   :root {
     color-scheme: light;
